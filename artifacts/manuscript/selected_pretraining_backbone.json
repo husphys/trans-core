@@ -1,0 +1,9 @@
+{
+  "completed_backbones": 8,
+  "generated_at": "2026-09-20T01:33:33.190183+00:00",
+  "required_backbones": 8,
+  "selected_backbone": "xLSTM",
+  "selection_criterion": "minimum validation MAE_norm",
+  "selection_status": "COMPLETE",
+  "validation_mae_norm": 0.015028174539595075
+}

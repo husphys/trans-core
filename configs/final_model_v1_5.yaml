@@ -1,0 +1,59 @@
+project_root: ..
+protocol_version: MEPI-FROZEN-PROTOCOL v1.5
+protocol_artifact: MEPI-FROZEN-PROTOCOL v1.5.md
+protocol_sha256: 0f68d6ebd5d16177e5238471639f861dfa91522130ac6a4a3ac48634b9af1e39
+
+source_model_config: configs/finetune_v1_5.yaml
+source_model_config_sha256: 6c10585593b786599f8f545f9550fdf96974ee13537663bc5f768943f5fdf8fb
+sensitivity_config: configs/loss_weight_sensitivity_v1_5.yaml
+sensitivity_config_sha256: 6bd8e304fee0de9bca0b9b4a5ee551355f240ca0992a7af00245fcfadff3fd22
+
+selection:
+  selected_by: VAL_TASK_SCORE
+  formula: validation_L_electrical + validation_L_LSP
+  direction: minimize
+  weighted_validation_total_loss_used_for_cross_configuration_selection: false
+  rule_artifact: MEPI-V1.5-LOSS-WEIGHT-SELECTION-RULE.md
+  rule_sha256: 8c4eda9035e7e5e4f75a4b0ccde643c8946fd3b990575ec0323977cb8497a5be
+  complete_grid_result_artifact: experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/comparison.json
+  complete_grid_result_sha256: 908c872450e0811ec2e9cc8ca2e193925f9c302100e413e51d66f80d3419245f
+  completed_configuration_count: 12
+  selected_configuration_id: l3_1_l4_0p05
+  validation_L_electrical: 0.0504307309494299
+  validation_L_LSP: 0.1519513356335023
+  VAL_TASK_SCORE: 0.2023820665829322
+
+loss_weights:
+  lambda1: 1.0
+  lambda2: 1.0
+  lambda3: 1.0
+  lambda4: 0.05
+
+completed_run:
+  best_epoch: 91
+  epoch_indexing: zero_based
+  completed_epochs: 100
+  max_epochs: 100
+  patience: 10
+  seed: 42
+  selected_checkpoint: experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/l3_1_l4_0p05/best_checkpoint.pt
+  selected_checkpoint_sha256: 0315922cab43aad2cde35016f1a60a62f3df4bc94844310e5ef84aee88389b33
+
+final_evaluation:
+  purpose: frozen_selected_checkpoint_final_test_only
+  training_allowed: false
+  retraining_allowed: false
+  checkpoint_selection_allowed: false
+  lambda_modification_allowed: false
+  run_final_test_default: false
+  expected_test_rows: 90
+  expected_test_groups: 9
+  exactly_once: true
+  results_json: reports/MEPI_V1_5_FINAL_TEST_RESULTS.json
+  results_markdown: reports/MEPI_V1_5_FINAL_TEST_RESULTS.md
+
+status:
+  HYPERPARAMETER_SELECTION_COMPLETE: true
+  FINAL_CONFIG_FROZEN: true
+  TEST_ACCESSED: false
+  TEST_EVALUATION_COUNT: 0

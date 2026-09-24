@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or its research artifacts, please cite this repository."
+title: "MEPI / Transformer Core Study"
+type: software
+version: "1.5"
+date-released: 2026-09-24
+license: MIT
+repository-code: "https://github.com/husphys/trans-core"
+authors:
+  - family-names: Nguyen
+    given-names: Ngoc Dinh
+  - family-names: Ngo
+    given-names: Chi Bach
+  - family-names: Ngo
+    given-names: Duc Minh
+  - family-names: Nguyen
+    given-names: Hoang Linh
+  - family-names: Pham
+    given-names: Thanh Phong
+  - family-names: Luong
+    given-names: Thi Minh Thuy
+  - family-names: Nguyen
+    given-names: Duy Thien
+  - family-names: Nguyen
+    given-names: Hong Quang
+  - family-names: Tran
+    given-names: Quoc Tu Kieu
+  - family-names: Le
+    given-names: Quang Thao

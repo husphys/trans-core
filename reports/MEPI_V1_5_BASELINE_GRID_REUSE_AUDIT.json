@@ -1,0 +1,104 @@
+{
+  "baseline_pair": {
+    "lambda1": 1.0,
+    "lambda2": 1.0,
+    "lambda3": 0.3,
+    "lambda4": 0.2
+  },
+  "baseline_reuse_valid": true,
+  "completed_baseline": {
+    "best_checkpoint": "/home/diy-hus/transfomfer/experiments/finetune_v1_5_xlstm_depth8/baseline_l3_0p3_l4_0p20/best_checkpoint.pt",
+    "best_checkpoint_sha256": "84ab544ab094d602392276effc3fa94ed1a04cb61b214530a438fc710361fd7b",
+    "best_epoch": 81,
+    "best_validation_total_loss": 0.3626963762676015,
+    "epochs_completed": 92,
+    "parent_protocol": "MEPI-FROZEN-PROTOCOL v1.4",
+    "parent_state_sha256": "22aca18c37b4526c46e3044eeeda4e36a6a0364891e767cace755961eef44138",
+    "resume_next_epoch": 50,
+    "resume_source": "v1.4_exact_parent_state",
+    "scheduler": null,
+    "status": "TRAINING_COMPLETE_VALIDATION_ONLY",
+    "stopped_early": true,
+    "test_accessed": false,
+    "test_dataset_created": false,
+    "test_loader_created": false
+  },
+  "primary_selection_formula": "validation_L_electrical + validation_L_LSP",
+  "primary_selection_metric": "VAL_TASK_SCORE",
+  "proof": {
+    "dataset_split_preprocessing_shared_via_base_config": true,
+    "exact_parent_state_sha256_equal": true,
+    "fresh_initialization_state_bitwise_equal": true,
+    "initial_state_keys_equal": true,
+    "lambda_pair_equal": true,
+    "representation_checkpoint_equal": true,
+    "representation_checkpoint_sha256_equal": true,
+    "resume_source_exact": true,
+    "seed_equal": true,
+    "training_contract_equal": true,
+    "v1_4_history_prefix_exact": true
+  },
+  "protected_run_hashes": {
+    "best_checkpoint.pt": "84ab544ab094d602392276effc3fa94ed1a04cb61b214530a438fc710361fd7b",
+    "completed.json": "0fa0f951fc67d21b2876083996fa37d06bcfa1734f917b2e16ffb3abe4316da8",
+    "continuation_provenance.json": "194b0d561154d212d9e26f497d958ad248afe86ca8a790977ca8d8bf51f15041",
+    "history.json": "10a37dc7733502b29741dbce14cdde17ffcb3776a749223729294dca1d9316e3",
+    "last_checkpoint.pt": "695ce15b0b47795920c0bc5ef605a56947381f7b58e3047c1a9f617c3a3f64fd"
+  },
+  "scientific_training_run": false,
+  "status": "PASS",
+  "test_accessed": false,
+  "validation_only_re_evaluation": {
+    "Efficiency_MAE": 1.412276548497817,
+    "Efficiency_R2": 0.9599215461568361,
+    "Efficiency_RMSE": 1.7673222944796008,
+    "LSP_raw_MAE": 0.02310353482470793,
+    "LSP_raw_MAPE_PERCENT": 4.151967525482178,
+    "LSP_raw_R2": 0.9423118642464063,
+    "LSP_raw_RMSE": 0.027662032905995733,
+    "P_loss_MAE": 0.01958320701823515,
+    "P_loss_R2": 0.9286966096546048,
+    "P_loss_RMSE": 0.02928053269566415,
+    "VAL_TASK_SCORE": 0.25775656331987945,
+    "eligible_for_selection": true,
+    "numerical_failure": false,
+    "physical_validation_metrics": {
+      "LSP_raw": {
+        "mae": 0.02310353482470793,
+        "mape_percent": 4.151967525482178,
+        "r2": 0.9423118642464063,
+        "rmse": 0.027662032905995733
+      },
+      "P_loss": {
+        "mae": 0.01958320701823515,
+        "r2": 0.9286966096546048,
+        "rmse": 0.02928053269566415
+      },
+      "efficiency_percent": {
+        "mae": 1.412276548497817,
+        "r2": 0.9599215461568361,
+        "rmse": 1.7673222944796008
+      }
+    },
+    "sample_count": 85,
+    "test_accessed": false,
+    "unweighted_validation_losses": {
+      "L_LSP": 0.15912023256806768,
+      "L_UQ": 0.41398634419721714,
+      "L_electrical": 0.09863633075181176,
+      "L_physics": 0.07380848636522012
+    },
+    "validation_L_LSP": 0.15912023256806768,
+    "validation_L_UQ": 0.41398634419721714,
+    "validation_L_electrical": 0.09863633075181176,
+    "validation_L_physics": 0.07380848636522012,
+    "weighted_contributions": {
+      "L_LSP": 0.15912023256806768,
+      "L_UQ": 0.08279726883944344,
+      "L_electrical": 0.09863633075181176,
+      "L_physics": 0.022142545909566037
+    },
+    "weighted_validation_total_loss": 0.3626963762676015
+  },
+  "weighted_validation_total_loss_used_for_cross_configuration_ranking": false
+}

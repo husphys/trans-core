@@ -1,0 +1,47 @@
+{
+  "forbidden_predictive_inputs": [
+    "core_id",
+    "temperature_core_c",
+    "T_core_K",
+    "log_LSP_raw",
+    "LSP_raw",
+    "LSP",
+    "LSP_z",
+    "P_loss",
+    "efficiency_percent"
+  ],
+  "metadata_only": [
+    "core_id"
+  ],
+  "normalization_file": "train_normalization_v1_2.json",
+  "optimization_lsp_target": "LSP_z",
+  "processing_version": "mepi-v1.2-lsp-split-normalization-v1",
+  "protocol_sha256": "c0fd2fe8aafc0c55dc0b6c525e341d0458782391f6476831da2e3cc5cf401988",
+  "protocol_version": "MEPI-FROZEN-PROTOCOL v1.2",
+  "tabular_features": [
+    "frequency_hz",
+    "vin_rms_v",
+    "phase_shift_deg",
+    "temperature_ambient_c",
+    "B_peak_t",
+    "B_rms",
+    "B_thd_percent",
+    "dBdt_max",
+    "form_factor"
+  ],
+  "tabular_width": 9,
+  "targets_raw": [
+    "efficiency_percent",
+    "P_loss",
+    "LSP_raw"
+  ],
+  "temperature_core_is_target_construction_only": true,
+  "waveform": {
+    "name": "B(t)_1024",
+    "shape": [
+      862,
+      1024
+    ],
+    "source": "Scope #2 CH1 primary Vin"
+  }
+}

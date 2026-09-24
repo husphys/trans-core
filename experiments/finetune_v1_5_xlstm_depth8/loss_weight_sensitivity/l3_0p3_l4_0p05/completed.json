@@ -1,0 +1,66 @@
+{
+  "Efficiency_MAE": 1.03567455516142,
+  "Efficiency_R2": 0.9774239735419437,
+  "Efficiency_RMSE": 1.3264290639036196,
+  "LSP_raw_MAE": 0.023918848879197065,
+  "LSP_raw_MAPE_PERCENT": 4.313558101654053,
+  "LSP_raw_R2": 0.9409659559765627,
+  "LSP_raw_RMSE": 0.027982860584551787,
+  "P_loss_MAE": 0.012100350155549892,
+  "P_loss_R2": 0.9703275503522065,
+  "P_loss_RMSE": 0.01888863542098907,
+  "VAL_TASK_SCORE": 0.22005344506572275,
+  "best_epoch": 81,
+  "configuration_id": "l3_0p3_l4_0p05",
+  "eligible_for_selection": true,
+  "epochs_completed": 92,
+  "initialization_checkpoint_sha256": "fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c",
+  "lambda1": 1.0,
+  "lambda2": 1.0,
+  "lambda3": 0.3,
+  "lambda4": 0.05,
+  "numerical_failure": false,
+  "physical_validation_metrics": {
+    "LSP_raw": {
+      "mae": 0.023918848879197065,
+      "mape_percent": 4.313558101654053,
+      "r2": 0.9409659559765627,
+      "rmse": 0.027982860584551787
+    },
+    "P_loss": {
+      "mae": 0.012100350155549892,
+      "r2": 0.9703275503522065,
+      "rmse": 0.01888863542098907
+    },
+    "efficiency_percent": {
+      "mae": 1.03567455516142,
+      "r2": 0.9774239735419437,
+      "rmse": 1.3264290639036196
+    }
+  },
+  "primary_selection_metric": "VAL_TASK_SCORE",
+  "sample_count": 85,
+  "scheduler": null,
+  "seed": 42,
+  "selection_rule_ready": true,
+  "stop_epoch": 91,
+  "stopped_early": true,
+  "test_accessed": false,
+  "unweighted_validation_losses": {
+    "L_LSP": 0.16382228714578292,
+    "L_UQ": 0.4072420190362369,
+    "L_electrical": 0.05623115791993983,
+    "L_physics": 0.05737878003102891
+  },
+  "validation_L_LSP": 0.16382228714578292,
+  "validation_L_UQ": 0.4072420190362369,
+  "validation_L_electrical": 0.05623115791993983,
+  "validation_L_physics": 0.05737878003102891,
+  "weighted_contributions": {
+    "L_LSP": 0.16382228714578292,
+    "L_UQ": 0.020362100951811846,
+    "L_electrical": 0.05623115791993983,
+    "L_physics": 0.017213634009308674
+  },
+  "weighted_validation_total_loss": 0.2576291806557599
+}

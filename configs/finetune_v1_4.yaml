@@ -1,0 +1,107 @@
+project_root: ..
+protocol_version: MEPI-FROZEN-PROTOCOL v1.4
+protocol_sha256: 685f79b6b700ae131ff2a19af524417ead46ee9c073f1c2ddf9d96191f59b487
+allow_training: true
+seed: 42
+
+backbone: xLSTM
+backbone_depth: 8
+latent_dim: 256
+pretrained_checkpoint: experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt
+pretrained_checkpoint_sha256: fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c
+
+dataset:
+  protocol_version: MEPI-FROZEN-PROTOCOL v1.2
+  path: data/MEPI/v1_2/samples_qc_valid_v1_2.csv
+  path_sha256: d280a1ca6c54bb77100779b1b458d16269eaeba5ba834a15f09ff4cf36d04273
+  waveform_path: data/MEPI/v1_2/B1024_v1_2.npy
+  waveform_path_sha256: 0051f21939faddf5f23068c6acd29a0c0be12c93769a713b46b69338d8109c6f
+  sample_ids_path: data/MEPI/v1_2/sample_ids_v1_2.npy
+  sample_ids_path_sha256: 59387a498f642cea12b40763669fcd7a62db1bfb1d12b09c972b095561966fa9
+  feature_schema: data/MEPI/v1_2/feature_schema_v1_2.json
+  feature_schema_sha256: d1aadd4c7d40e1c40847049194ac214722b1a045b370bf37e58d908c1816f5ec
+  split_manifest: data/MEPI/v1_2/split_manifest_v1_2.csv
+  split_manifest_sha256: 01d097ff8bd1d3d8e09d1ef6affd508e72bfc11b3e81ac74034862103870a166
+  normalization: data/MEPI/v1_2/train_normalization_v1_2.json
+  normalization_sha256: ea9858df0b5367a8cf8c7a73cf36073a6e255564d35b290e61fabf3d56be6ab2
+  checksum_manifest: data/MEPI/v1_2/checksums_v1_2.sha256
+  checksum_manifest_sha256: 4f941db843bda4ae10edeb7e1ebea4a2245ae45a09e6785fca60c84d982dbe5a
+
+split:
+  seed: 42
+  train_groups: 72
+  validation_groups: 9
+  test_groups: 9
+  model_development_splits: [train, validation]
+  test_access_during_training: false
+  test_access_during_checkpoint_selection: false
+
+transfer:
+  strict: true
+  transferred_components: [waveform_encoder, backbone]
+  newly_initialized_components:
+    [tabular_encoder_finetune, fusion, p_loss_aux_z, pirl, mtph]
+
+waveform_preprocessing:
+  formula: (B_raw - mean) / scale
+  mean: -3.1640557780983195e-13
+  scale: 0.06941968146373301
+  source: selected_checkpoint_preprocessing_metadata
+  statistics_scope: all_MagNet_training_waveform_elements
+  per_waveform: false
+  clipping: null
+  output_dtype: float32
+
+physics:
+  steinmetz_prior: artifacts/finetune_v1_4/steinmetz_prior_train_v1_4.json
+  steinmetz_prior_sha256: a5e110924093455cf6e0912ed4fcf82c046fec82326f0480d56358532662d5f8
+  steinmetz_latent_residual: true
+  arrhenius_target_physics: true
+  arrhenius_latent_residual: false
+  core_id_used: false
+  measured_core_temperature_used_by_model: false
+  residual: r_St = P_loss_aux_z - P_St_z
+  physics_loss: mean(r_St ** 2)
+
+lsp_uncertainty:
+  prediction_space: normalized_LSP
+  mean_activation: null
+  variance_transform: softplus
+  variance_floor: 1e-6
+  nll_full: true
+  nll_reduction: mean
+
+training:
+  command: >-
+    python -m src.mepi_v1.finetune --config configs/finetune_v1_4.yaml
+    --run-directory experiments/finetune_v1_4_xlstm_depth8/baseline_l3_0p3_l4_0p20
+  optimizer: AdamW
+  learning_rate: 5.0e-6
+  weight_decay: 1.0e-4
+  scheduler: null
+  warmup: null
+  batch_size: 64
+  max_epochs: 50
+  early_stopping_patience: 10
+  min_delta: 0.0
+  strict_improvement: true
+  checkpoint_monitor: validation_total_loss
+  gradient_clip_norm: 1.0
+  amp: cuda_conditional
+  targets: [efficiency_percent, P_loss, LSP]
+  loss_weights:
+    electrical: 1.0
+    LSP: 1.0
+    physics: 0.3
+    uncertainty_nll: 0.2
+  loss_weight_grid:
+    lambda1: [1.0]
+    lambda2: [1.0]
+    lambda3: [0.1, 0.3, 0.5, 1.0]
+    lambda4: [0.05, 0.10, 0.20]
+
+resume:
+  automatic: true
+  scheduler_state_required: false
+  checkpoint_name: last_checkpoint.pt
+  best_checkpoint_name: best_checkpoint.pt

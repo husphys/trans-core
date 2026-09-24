@@ -1,0 +1,10 @@
+{
+  "backbone": "xLSTM",
+  "parameter_count": 5969930,
+  "scope": "selected under the MagNet depth-study protocol only",
+  "selected_depth": 8,
+  "selection_criterion": "minimum validation MAE_norm",
+  "status": "COMPLETE",
+  "test_split_accessed": false,
+  "validation_mae_norm": 0.020495040982892985
+}

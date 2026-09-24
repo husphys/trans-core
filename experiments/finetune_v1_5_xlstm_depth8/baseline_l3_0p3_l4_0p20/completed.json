@@ -1,0 +1,17 @@
+{
+  "best_checkpoint": "/home/diy-hus/transfomfer/experiments/finetune_v1_5_xlstm_depth8/baseline_l3_0p3_l4_0p20/best_checkpoint.pt",
+  "best_checkpoint_sha256": "84ab544ab094d602392276effc3fa94ed1a04cb61b214530a438fc710361fd7b",
+  "best_epoch": 81,
+  "best_validation_total_loss": 0.3626963762676015,
+  "epochs_completed": 92,
+  "parent_protocol": "MEPI-FROZEN-PROTOCOL v1.4",
+  "parent_state_sha256": "22aca18c37b4526c46e3044eeeda4e36a6a0364891e767cace755961eef44138",
+  "resume_next_epoch": 50,
+  "resume_source": "v1.4_exact_parent_state",
+  "scheduler": null,
+  "status": "TRAINING_COMPLETE_VALIDATION_ONLY",
+  "stopped_early": true,
+  "test_accessed": false,
+  "test_dataset_created": false,
+  "test_loader_created": false
+}

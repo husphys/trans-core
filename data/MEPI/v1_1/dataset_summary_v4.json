@@ -1,0 +1,60 @@
+{
+  "B1024_candidate_finetune_v4_shape": [
+    862,
+    1024
+  ],
+  "B1024_primary_paired_v4_shape": [
+    900,
+    1024
+  ],
+  "B1024_v4_shape": [
+    975,
+    1024
+  ],
+  "candidate_COMMERCIAL_rows": 417,
+  "candidate_FE_rows": 445,
+  "candidate_finetune_rows": 862,
+  "grid_status_counts": {
+    "COMPLETE_ALL_VALID": 82,
+    "COMPLETE_WITH_QC_FAILURES": 8
+  },
+  "master_rows": 975,
+  "new_hardfail_by_frequency_reason": {
+    "1000:VOUT_THD": 5,
+    "1250:VOUT_THD": 5
+  },
+  "new_qc_counts": {
+    "HARD_FAIL": 10,
+    "WARNING": 65
+  },
+  "new_session_id": "session_20260803_014203",
+  "new_session_rows": 75,
+  "normalization_fitted": false,
+  "old_high_rows_preserved_excluded": 75,
+  "old_high_session_id": "session_20260802_075027",
+  "primary_hardfail_rows": 38,
+  "primary_paired_rows": 900,
+  "primary_qc_counts": {
+    "HARD_FAIL": 38,
+    "WARNING": 862
+  },
+  "processing_version": "primary-B-reprocess-v4-new-commercial-5p6",
+  "protocol_sha256": "a515052cd2f8cf2970b731cfb48dee055c316a5d4acc0f0ca90313436c344c0f",
+  "protocol_version": "MEPI-FROZEN-PROTOCOL v1.1",
+  "split_created": false,
+  "statuses": {
+    "B_READY": true,
+    "CANDIDATE_FINETUNE_DATA_READY": true,
+    "ELECTRICAL_QC_READY": true,
+    "LSP_DEFINITION_READY": false,
+    "LSP_READY": false,
+    "NEW_COMMERCIAL_5P6_READY": true,
+    "OLD_COMMERCIAL_6X_EXCLUDED": true,
+    "PRIMARY_PAIRED_GRID_MEASURED": true,
+    "TEMPERATURE_CALIBRATION_READY": false,
+    "TEMPERATURE_MAPPING_READY": true,
+    "TRAIN_READY": false
+  },
+  "test_accessed": false,
+  "training_run": false
+}

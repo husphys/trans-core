@@ -1,0 +1,71 @@
+{
+  "Efficiency_MAE": 1.412276548497817,
+  "Efficiency_R2": 0.9599215461568361,
+  "Efficiency_RMSE": 1.7673222944796008,
+  "LSP_raw_MAE": 0.02310353482470793,
+  "LSP_raw_MAPE_PERCENT": 4.151967525482178,
+  "LSP_raw_R2": 0.9423118642464063,
+  "LSP_raw_RMSE": 0.027662032905995733,
+  "P_loss_MAE": 0.01958320701823515,
+  "P_loss_R2": 0.9286966096546048,
+  "P_loss_RMSE": 0.02928053269566415,
+  "VAL_TASK_SCORE": 0.25775656331987945,
+  "baseline_reuse_audit": "reports/MEPI_V1_5_BASELINE_GRID_REUSE_AUDIT.json",
+  "baseline_reuse_audit_sha256": "f2c6a08aa7ed9cb6ab01cdb12e6716e604b08897836647a5641bdbf7ec1bf1e7",
+  "baseline_reuse_valid": true,
+  "best_epoch": 81,
+  "configuration_id": "l3_0p3_l4_0p20",
+  "eligible_for_selection": true,
+  "epochs_completed": 92,
+  "initialization_checkpoint_sha256": "fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c",
+  "lambda1": 1.0,
+  "lambda2": 1.0,
+  "lambda3": 0.3,
+  "lambda4": 0.2,
+  "numerical_failure": false,
+  "physical_validation_metrics": {
+    "LSP_raw": {
+      "mae": 0.02310353482470793,
+      "mape_percent": 4.151967525482178,
+      "r2": 0.9423118642464063,
+      "rmse": 0.027662032905995733
+    },
+    "P_loss": {
+      "mae": 0.01958320701823515,
+      "r2": 0.9286966096546048,
+      "rmse": 0.02928053269566415
+    },
+    "efficiency_percent": {
+      "mae": 1.412276548497817,
+      "r2": 0.9599215461568361,
+      "rmse": 1.7673222944796008
+    }
+  },
+  "primary_selection_metric": "VAL_TASK_SCORE",
+  "reused_completed_v1_5_baseline": true,
+  "sample_count": 85,
+  "scheduler": null,
+  "scientific_training_run_for_reuse_preparation": false,
+  "seed": 42,
+  "selection_rule_ready": true,
+  "stop_epoch": 91,
+  "stopped_early": true,
+  "test_accessed": false,
+  "unweighted_validation_losses": {
+    "L_LSP": 0.15912023256806768,
+    "L_UQ": 0.41398634419721714,
+    "L_electrical": 0.09863633075181176,
+    "L_physics": 0.07380848636522012
+  },
+  "validation_L_LSP": 0.15912023256806768,
+  "validation_L_UQ": 0.41398634419721714,
+  "validation_L_electrical": 0.09863633075181176,
+  "validation_L_physics": 0.07380848636522012,
+  "weighted_contributions": {
+    "L_LSP": 0.15912023256806768,
+    "L_UQ": 0.08279726883944344,
+    "L_electrical": 0.09863633075181176,
+    "L_physics": 0.022142545909566037
+  },
+  "weighted_validation_total_loss": 0.3626963762676015
+}

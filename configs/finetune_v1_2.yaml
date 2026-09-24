@@ -1,0 +1,41 @@
+project_root: ..
+protocol_version: MEPI-FROZEN-PROTOCOL v1.2
+protocol_sha256: c0fd2fe8aafc0c55dc0b6c525e341d0458782391f6476831da2e3cc5cf401988
+allow_training: false
+seed: 42
+dataset:
+  path: data/MEPI/v1_2/samples_qc_valid_v1_2.csv
+  waveform_path: data/MEPI/v1_2/B1024_v1_2.npy
+  sample_ids_path: data/MEPI/v1_2/sample_ids_v1_2.npy
+  feature_schema: data/MEPI/v1_2/feature_schema_v1_2.json
+  split_manifest: data/MEPI/v1_2/split_manifest_v1_2.csv
+  normalization: data/MEPI/v1_2/train_normalization_v1_2.json
+split:
+  method: exact_seeded_operating_condition_groups
+  seed: 42
+  train_groups: 72
+  validation_groups: 9
+  test_groups: 9
+transformer:
+  primary_turns: 10
+  effective_area_m2: 1.217268e-4
+  primary_resistance_ohm: 0.1012
+  secondary_resistance_ohm: 0.1038
+lsp:
+  definition_version: v1.2
+  gas_constant_j_per_mol_k: 8.314462618
+  effective_activation_energy_j_per_mol: 125000.0
+  reference_temperature_k: 298.15
+  epsilon: null
+  normalization: population_standard_deviation_ddof_0_train_only
+model:
+  backbone: xLSTM
+  backbone_layers: 8
+  latent_dim: 256
+  pretrained_checkpoint: experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt
+  transferred_components: [waveform_encoder, backbone]
+  newly_initialized_components: [tabular_encoder_finetune, fusion, pirl, mtph]
+training:
+  command: python -m src.mepi_v1.finetune --config configs/finetune_v1_2.yaml
+  test_access_during_model_development: false
+  note: Training remains disabled until the user explicitly authorizes execution.

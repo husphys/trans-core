@@ -1,0 +1,73 @@
+project_root: ..
+protocol_version: MEPI-FROZEN-PROTOCOL v1.3
+protocol_sha256: 99b31c82a3a92b6d5446477cbb9a6ae5fe40afae0476a6533324b2b14898ccfa
+allow_training: false
+seed: 42
+
+backbone: xLSTM
+backbone_depth: 8
+latent_dim: 256
+pretrained_checkpoint: experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt
+pretrained_checkpoint_sha256: fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c
+
+dataset:
+  protocol_version: MEPI-FROZEN-PROTOCOL v1.2
+  path: data/MEPI/v1_2/samples_qc_valid_v1_2.csv
+  path_sha256: d280a1ca6c54bb77100779b1b458d16269eaeba5ba834a15f09ff4cf36d04273
+  waveform_path: data/MEPI/v1_2/B1024_v1_2.npy
+  waveform_path_sha256: 0051f21939faddf5f23068c6acd29a0c0be12c93769a713b46b69338d8109c6f
+  sample_ids_path: data/MEPI/v1_2/sample_ids_v1_2.npy
+  sample_ids_path_sha256: 59387a498f642cea12b40763669fcd7a62db1bfb1d12b09c972b095561966fa9
+  feature_schema: data/MEPI/v1_2/feature_schema_v1_2.json
+  feature_schema_sha256: d1aadd4c7d40e1c40847049194ac214722b1a045b370bf37e58d908c1816f5ec
+  split_manifest: data/MEPI/v1_2/split_manifest_v1_2.csv
+  split_manifest_sha256: 01d097ff8bd1d3d8e09d1ef6affd508e72bfc11b3e81ac74034862103870a166
+  normalization: data/MEPI/v1_2/train_normalization_v1_2.json
+  normalization_sha256: ea9858df0b5367a8cf8c7a73cf36073a6e255564d35b290e61fabf3d56be6ab2
+  checksum_manifest: data/MEPI/v1_2/checksums_v1_2.sha256
+  checksum_manifest_sha256: 4f941db843bda4ae10edeb7e1ebea4a2245ae45a09e6785fca60c84d982dbe5a
+
+split:
+  seed: 42
+  train_groups: 72
+  validation_groups: 9
+  test_groups: 9
+  test_access_during_training: false
+  test_access_during_checkpoint_selection: false
+
+transfer:
+  strict: true
+  transferred_components: [waveform_encoder, backbone]
+  newly_initialized_components: [tabular_encoder_finetune, fusion, pirl, mtph]
+  expected_matched_keys: 88
+  expected_shape_mismatches: 0
+
+lsp:
+  inherited_definition: MEPI-FROZEN-PROTOCOL v1.2
+  effective_activation_energy_j_per_mol: 125000.0
+  reference_temperature_k: 298.15
+  normalization: frozen_train_only_v1_2
+
+training:
+  command: python -m src.mepi_v1.finetune --config configs/finetune_v1_3.yaml
+  # These values are deliberately explicit rather than guessed from legacy BiGRU
+  # code.  MEPI v1.3 does not currently freeze a complete downstream optimizer
+  # and objective contract, so scientific execution must remain fail-closed.
+  optimizer: null
+  learning_rate: null
+  weight_decay: null
+  scheduler: null
+  batch_size: null
+  max_epochs: null
+  early_stopping_patience: null
+  gradient_clip_norm: null
+  loss_weights:
+    efficiency: null
+    P_loss: null
+    LSP: null
+    physics: null
+    uncertainty_nll: null
+  note: >-
+    Training remains disabled until separately authorized and the missing
+    downstream optimizer, scheduler, early-stopping, objective, waveform
+    preprocessing, and physics-residual contracts are authoritatively frozen.

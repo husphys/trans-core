@@ -1,0 +1,75 @@
+{
+  "backbone": "xLSTM",
+  "best_checkpoint": "/home/diy-hus/transfomfer/experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt",
+  "best_checkpoint_sha256": "fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c",
+  "best_epoch": 10,
+  "best_step": 5840,
+  "compatibility": {
+    "backbone": "xLSTM",
+    "common_configuration_fingerprint": "2fba9e5de278d603fac82c5b2fcb8bf1c7344d621775eb7d623534a3bfe4c823",
+    "dataset_fingerprint": "0aca43184e9bd6cc90eec736a89fe1ea32f45b126527cb97918cd92684ac2c19",
+    "material_head_count": 10,
+    "model_architecture_fingerprint": "0c7df792644d973651017b517d36f3f76a3ad51a8b5e5ada0beca271db0b7d59",
+    "pretraining_tabular_fields": [
+      "frequency_hz",
+      "temperature_c"
+    ],
+    "seed": 42,
+    "source_tree_fingerprint": "14bc064a53f22849c3723254a57d6604a3b14339bf987c22d2821cffeefd3816",
+    "split_fingerprint": "8bba5a27f5394cf1530974ffc3a690e9088d14ddef180b5d654b6fe6985ea593",
+    "target_transform": {
+      "inverse": "expm1(z * scale + mean)",
+      "scaler": "population mean and standard deviation",
+      "state": {
+        "fitted_split": "train",
+        "mean": [
+          11.073220047200586
+        ],
+        "sample_count": 149405,
+        "scale": [
+          1.849061097213353
+        ]
+      },
+      "transform": "log1p_standardize"
+    },
+    "waveform_length": 1024
+  },
+  "completion_timestamp": "2026-09-20T10:36:18.087873+00:00",
+  "depth": 8,
+  "epochs_completed": 10,
+  "experiment": "MEPI xLSTM depth sensitivity on MagNet",
+  "final_epoch": 10,
+  "finalization_runtime_seconds": 15.746774223007378,
+  "parameter_count": 5969930,
+  "peak_gpu_memory_bytes": 4459571712,
+  "peak_gpu_memory_gib": 4.153299808502197,
+  "preprocessing_source": {
+    "checkpoint": "/home/diy-hus/transfomfer/experiments/pretrain_v1/xLSTM/best_checkpoint.pt",
+    "checkpoint_sha256": "6ad61ea11ec661e0633cc0e23dfdb52f5904b5fb2a6287d92198105668e0a090",
+    "dataset_fingerprint": "0aca43184e9bd6cc90eec736a89fe1ea32f45b126527cb97918cd92684ac2c19",
+    "fitted_split": "train",
+    "train_sample_count": 149405
+  },
+  "protocol_version": "MEPI-FROZEN-PROTOCOL v1.0",
+  "resume_events": 0,
+  "resumed": false,
+  "sample_counts": {
+    "test": "NOT_ACCESSED",
+    "train": 149405,
+    "validation": 18676
+  },
+  "selected_with_validation_only": true,
+  "selection_metric": "validation_normalized_mae",
+  "start_timestamp": "2026-09-20T09:56:20.571113+00:00",
+  "status": "COMPLETE",
+  "test_evaluations": 0,
+  "test_split_accessed": false,
+  "training_horizon_boundary_reached": true,
+  "training_runtime_seconds": 2381.5364197580056,
+  "validation_loss": 0.006929311365501521,
+  "validation_metrics": {
+    "normalized_mae": 0.020495040982892985,
+    "r2": 0.9992328208862007,
+    "rmse": 0.02794879212634789
+  }
+}

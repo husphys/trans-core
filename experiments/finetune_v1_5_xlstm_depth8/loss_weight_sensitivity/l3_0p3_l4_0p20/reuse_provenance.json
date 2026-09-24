@@ -1,0 +1,15 @@
+{
+  "reuse_audit": "reports/MEPI_V1_5_BASELINE_GRID_REUSE_AUDIT.json",
+  "reuse_audit_sha256": "f2c6a08aa7ed9cb6ab01cdb12e6716e604b08897836647a5641bdbf7ec1bf1e7",
+  "scientific_training_run": false,
+  "source_run": "experiments/finetune_v1_5_xlstm_depth8/baseline_l3_0p3_l4_0p20",
+  "source_run_hashes": {
+    "best_checkpoint.pt": "84ab544ab094d602392276effc3fa94ed1a04cb61b214530a438fc710361fd7b",
+    "completed.json": "0fa0f951fc67d21b2876083996fa37d06bcfa1734f917b2e16ffb3abe4316da8",
+    "continuation_provenance.json": "194b0d561154d212d9e26f497d958ad248afe86ca8a790977ca8d8bf51f15041",
+    "history.json": "10a37dc7733502b29741dbce14cdde17ffcb3776a749223729294dca1d9316e3",
+    "last_checkpoint.pt": "695ce15b0b47795920c0bc5ef605a56947381f7b58e3047c1a9f617c3a3f64fd"
+  },
+  "status": "REUSED_COMPLETED_BASELINE",
+  "test_accessed": false
+}

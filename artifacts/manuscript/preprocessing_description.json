@@ -1,0 +1,7 @@
+{
+  "waveform": "validated finite B(t), deterministically resampled to 1024 when required",
+  "inputs": "frequency_hz and temperature_c only",
+  "target": "log1p(core_loss), then training-only population standardization",
+  "inverse_target": "expm1(z * scale + mean)",
+  "material": "metadata and temporary-head routing only"
+}

@@ -1,0 +1,15 @@
+project_root: ..
+dataset:
+  path: data/raw/source_datasets/Dataset/magnet_pretrain_186k.h5
+split:
+  output_dir: data/splits/mepi_v1
+  train: 0.80
+  validation: 0.10
+  test: 0.10
+  seed: 42
+audit:
+  batch_size: 1024
+outputs:
+  audit_json: reports/magnet_dataset_audit.json
+  audit_markdown: reports/magnet_dataset_audit.md
+

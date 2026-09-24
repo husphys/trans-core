@@ -1,0 +1,36 @@
+training:
+  device: auto
+  amp: true
+  epochs: 10
+  batch_size: 256
+  num_workers: 4
+  pin_memory: true
+  persistent_workers: true
+  prefetch_factor: 2
+  cache_mode: hdf5
+  learning_rate: 3.0e-05
+  weight_decay: 0.0001
+runtime:
+  cudnn_benchmark: true
+  cudnn_deterministic: false
+  deterministic_algorithms: false
+  allow_tf32: true
+  float32_matmul_precision: high
+project_root: ..
+allow_training: true
+seed: 42
+backbone: xLSTM
+dataset:
+  path: data/raw/source_datasets/Dataset/magnet_pretrain_186k.h5
+  split_dir: data/splits/mepi_v1
+model:
+  latent_dim: 256
+  backbone_layers: 8
+selection_metric: validation_normalized_mae
+common_config: experiments/pretrain_v1/common_config.yaml
+experiment:
+  kind: xlstm_depth_v1
+  depth: 8
+  selection_metric: validation_normalized_mae
+  test_access: FORBIDDEN_DURING_SELECTION
+  preprocessing_reuse: official xLSTM train-fitted metadata, fingerprint verified

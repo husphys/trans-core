@@ -1,0 +1,1844 @@
+{
+  "epochs": [
+    {
+      "epoch": 0,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 5.52487169846003,
+        "electrical": 1.0830818997720444,
+        "physics": 1.3838124847828561,
+        "total": 7.266262019739054,
+        "uncertainty_nll": 4.8632923217145985
+      },
+      "validation": {
+        "LSP": 7.570639711267808,
+        "electrical": 1.108764367945054,
+        "physics": 2.591765078376321,
+        "total": 9.792670552870806,
+        "uncertainty_nll": 6.71474131415872
+      }
+    },
+    {
+      "epoch": 1,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 3.5199857007988675,
+        "electrical": 1.0389344874427828,
+        "physics": 0.9304500513722282,
+        "total": 4.989089994971929,
+        "uncertainty_nll": 3.020697288291076
+      },
+      "validation": {
+        "LSP": 4.834555659574621,
+        "electrical": 1.0360994787777171,
+        "physics": 1.547051721460679,
+        "total": 6.518551411348231,
+        "uncertainty_nll": 3.675611473532284
+      }
+    },
+    {
+      "epoch": 2,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 2.127116186650039,
+        "electrical": 0.9903701956789219,
+        "physics": 0.5871156037634637,
+        "total": 3.395269643097812,
+        "uncertainty_nll": 2.032970176340017
+      },
+      "validation": {
+        "LSP": 3.2309313718010397,
+        "electrical": 1.0016449956332936,
+        "physics": 0.9571588067447439,
+        "total": 4.646345183428596,
+        "uncertainty_nll": 2.532421257916619
+      }
+    },
+    {
+      "epoch": 3,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 1.3450122502519921,
+        "electrical": 0.9502569483010183,
+        "physics": 0.46980506346562373,
+        "total": 2.5175421640515503,
+        "uncertainty_nll": 1.6266285790106094
+      },
+      "validation": {
+        "LSP": 2.302065007826861,
+        "electrical": 0.9803983940797694,
+        "physics": 0.789398931054508,
+        "total": 3.6215744916130514,
+        "uncertainty_nll": 2.045827719744514
+      }
+    },
+    {
+      "epoch": 4,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.9459757558470037,
+        "electrical": 0.9133035523228596,
+        "physics": 0.40314264333057265,
+        "total": 2.0526015824452584,
+        "uncertainty_nll": 1.4475884583319119
+      },
+      "validation": {
+        "LSP": 1.7238234015072094,
+        "electrical": 0.9585616784937242,
+        "physics": 0.6951988311374888,
+        "total": 2.979495744144215,
+        "uncertainty_nll": 1.7710243225097657
+      }
+    },
+    {
+      "epoch": 5,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.7473959078608295,
+        "electrical": 0.8663387840838759,
+        "physics": 0.3257645587213175,
+        "total": 1.7795008356741249,
+        "uncertainty_nll": 1.360735786186729
+      },
+      "validation": {
+        "LSP": 1.4582545224358054,
+        "electrical": 0.9346795082092285,
+        "physics": 0.6061382132418015,
+        "total": 2.657056359683766,
+        "uncertainty_nll": 1.6456141920650706
+      }
+    },
+    {
+      "epoch": 6,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.6413361591543173,
+        "electrical": 0.8147824754534504,
+        "physics": 0.25531801234339696,
+        "total": 1.5981418522511335,
+        "uncertainty_nll": 1.3085562115673415
+      },
+      "validation": {
+        "LSP": 1.3466557053958668,
+        "electrical": 0.9129785481621238,
+        "physics": 0.49785643114763145,
+        "total": 2.4885198929730583,
+        "uncertainty_nll": 1.5905719841227812
+      }
+    },
+    {
+      "epoch": 7,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.5612798737039385,
+        "electrical": 0.7648941549151225,
+        "physics": 0.2004389004155538,
+        "total": 1.4495333290863592,
+        "uncertainty_nll": 1.2645528096125462
+      },
+      "validation": {
+        "LSP": 1.2528377084171072,
+        "electrical": 0.8880607240340289,
+        "physics": 0.3912499024587519,
+        "total": 2.335377653907327,
+        "uncertainty_nll": 1.5420827557058896
+      }
+    },
+    {
+      "epoch": 8,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.5125938409280568,
+        "electrical": 0.7142845065139093,
+        "physics": 0.15766161272445967,
+        "total": 1.3357814496608107,
+        "uncertainty_nll": 1.2320924664168378
+      },
+      "validation": {
+        "LSP": 1.1188624718609979,
+        "electrical": 0.8543519188376034,
+        "physics": 0.3143448777058545,
+        "total": 2.141259625378777,
+        "uncertainty_nll": 1.4748357492334703
+      }
+    },
+    {
+      "epoch": 9,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.47699583158048825,
+        "electrical": 0.6619067008144818,
+        "physics": 0.1304899022156668,
+        "total": 1.2381834477142823,
+        "uncertainty_nll": 1.202678712347883
+      },
+      "validation": {
+        "LSP": 1.0467887934516458,
+        "electrical": 0.8205748053158031,
+        "physics": 0.2660250425338745,
+        "total": 2.01893274082857,
+        "uncertainty_nll": 1.4352329843184528
+      }
+    },
+    {
+      "epoch": 10,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.4532645755112605,
+        "electrical": 0.6107140554784861,
+        "physics": 0.11539187777944701,
+        "total": 1.1574105334941303,
+        "uncertainty_nll": 1.1762869602728099
+      },
+      "validation": {
+        "LSP": 0.9887860859141631,
+        "electrical": 0.7863638709573185,
+        "physics": 0.23979078794226927,
+        "total": 1.9170942979700425,
+        "uncertainty_nll": 1.4001417412477382
+      }
+    },
+    {
+      "epoch": 11,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.42985563667754073,
+        "electrical": 0.5619245378037554,
+        "physics": 0.10456099773294887,
+        "total": 1.0808112657746893,
+        "uncertainty_nll": 1.1532564626510486
+      },
+      "validation": {
+        "LSP": 0.9088132942424101,
+        "electrical": 0.7514100775999182,
+        "physics": 0.2064260086592506,
+        "total": 1.790037171980914,
+        "uncertainty_nll": 1.3577191380893483
+      }
+    },
+    {
+      "epoch": 12,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.4082168024873803,
+        "electrical": 0.517657979780583,
+        "physics": 0.09782446195334847,
+        "total": 1.011808300295945,
+        "uncertainty_nll": 1.1317237280688779
+      },
+      "validation": {
+        "LSP": 0.8370812331928926,
+        "electrical": 0.7201415005852194,
+        "physics": 0.1948430836200714,
+        "total": 1.681515951717601,
+        "uncertainty_nll": 1.3168040163376753
+      }
+    },
+    {
+      "epoch": 13,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.3897016294831966,
+        "electrical": 0.4777326042475138,
+        "physics": 0.09358853124505047,
+        "total": 0.9510228945351757,
+        "uncertainty_nll": 1.1102421280251493
+      },
+      "validation": {
+        "LSP": 0.7749492925756117,
+        "electrical": 0.6884463141946232,
+        "physics": 0.18916202520622927,
+        "total": 1.5840868164511288,
+        "uncertainty_nll": 1.2788523281321806
+      }
+    },
+    {
+      "epoch": 14,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.37243975996103523,
+        "electrical": 0.44168884733358327,
+        "physics": 0.09001829860165303,
+        "total": 0.8956367593838832,
+        "uncertainty_nll": 1.090053538221112
+      },
+      "validation": {
+        "LSP": 0.7082912781659294,
+        "electrical": 0.6579005606034223,
+        "physics": 0.18131989442250307,
+        "total": 1.4825014114379882,
+        "uncertainty_nll": 1.2382725799784942
+      }
+    },
+    {
+      "epoch": 15,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.35278907973519924,
+        "electrical": 0.40888543394455223,
+        "physics": 0.08442145747605717,
+        "total": 0.8404489890977285,
+        "uncertainty_nll": 1.0689611846182545
+      },
+      "validation": {
+        "LSP": 0.6518155546749339,
+        "electrical": 0.6316095885108499,
+        "physics": 0.15774515464025385,
+        "total": 1.3909138735602884,
+        "uncertainty_nll": 1.203303721371819
+      }
+    },
+    {
+      "epoch": 16,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.3368251852073003,
+        "electrical": 0.3784790278956012,
+        "physics": 0.07997709302857973,
+        "total": 0.7915925208311066,
+        "uncertainty_nll": 1.0459035990713639
+      },
+      "validation": {
+        "LSP": 0.6032327960519229,
+        "electrical": 0.602677297592163,
+        "physics": 0.1622984734528205,
+        "total": 1.312974079917459,
+        "uncertainty_nll": 1.1674886044333963
+      }
+    },
+    {
+      "epoch": 17,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.31977888685820577,
+        "electrical": 0.35304398711071266,
+        "physics": 0.07501004698646989,
+        "total": 0.7466076857137889,
+        "uncertainty_nll": 1.0256358059733195
+      },
+      "validation": {
+        "LSP": 0.5542899790932151,
+        "electrical": 0.5782012504689834,
+        "physics": 0.15687638941933127,
+        "total": 1.2361872785231647,
+        "uncertainty_nll": 1.1326621546464808
+      }
+    },
+    {
+      "epoch": 18,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.30121449304112874,
+        "electrical": 0.3320207568061751,
+        "physics": 0.07583421794087605,
+        "total": 0.7060297710232686,
+        "uncertainty_nll": 1.000885161163158
+      },
+      "validation": {
+        "LSP": 0.5071543062434477,
+        "electrical": 0.557663423874799,
+        "physics": 0.14433483661097637,
+        "total": 1.1631705171921674,
+        "uncertainty_nll": 1.1010462171891156
+      }
+    },
+    {
+      "epoch": 19,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.28692656330319644,
+        "electrical": 0.3138843051210762,
+        "physics": 0.07089076163531911,
+        "total": 0.6712478564122185,
+        "uncertainty_nll": 0.9833952390644402
+      },
+      "validation": {
+        "LSP": 0.4582639497869155,
+        "electrical": 0.5385943973765653,
+        "physics": 0.13759772483916843,
+        "total": 1.0915713282192454,
+        "uncertainty_nll": 1.0686730861663818
+      }
+    },
+    {
+      "epoch": 20,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.2721486064284129,
+        "electrical": 0.29864458269080396,
+        "physics": 0.06583972089263723,
+        "total": 0.6388067367121989,
+        "uncertainty_nll": 0.9652324133217769
+      },
+      "validation": {
+        "LSP": 0.43031141757965086,
+        "electrical": 0.5131204408757827,
+        "physics": 0.13749296985128345,
+        "total": 1.0367345164803898,
+        "uncertainty_nll": 1.0410938389161053
+      }
+    },
+    {
+      "epoch": 21,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.258545300325452,
+        "electrical": 0.2828385783942332,
+        "physics": 0.06185071556957702,
+        "total": 0.6071414287260353,
+        "uncertainty_nll": 0.94404649613032
+      },
+      "validation": {
+        "LSP": 0.37309579849243163,
+        "electrical": 0.4913427044363583,
+        "physics": 0.11173706830424421,
+        "total": 0.9485012559329762,
+        "uncertainty_nll": 1.0108329730875352
+      }
+    },
+    {
+      "epoch": 22,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.24682485640829827,
+        "electrical": 0.26867199542741066,
+        "physics": 0.05780285017719435,
+        "total": 0.5794305571475578,
+        "uncertainty_nll": 0.9318570100757927
+      },
+      "validation": {
+        "LSP": 0.33747461122625017,
+        "electrical": 0.4711932855493882,
+        "physics": 0.1312637510983383,
+        "total": 0.8969694165622487,
+        "uncertainty_nll": 0.9784486181595746
+      }
+    },
+    {
+      "epoch": 23,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.23187598310617033,
+        "electrical": 0.2582342966501716,
+        "physics": 0.06017535944432671,
+        "total": 0.5534061866729714,
+        "uncertainty_nll": 0.9048659578507992
+      },
+      "validation": {
+        "LSP": 0.3151119680965648,
+        "electrical": 0.4495103443370146,
+        "physics": 0.11018134938443408,
+        "total": 0.8456830193014706,
+        "uncertainty_nll": 0.9601259189493516
+      }
+    },
+    {
+      "epoch": 24,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.22093216092305412,
+        "electrical": 0.24743038997205932,
+        "physics": 0.05715210726579551,
+        "total": 0.529877655804591,
+        "uncertainty_nll": 0.8873892978289242
+      },
+      "validation": {
+        "LSP": 0.2845130057895885,
+        "electrical": 0.4298516469843247,
+        "physics": 0.10461760794415194,
+        "total": 0.7924877825905295,
+        "uncertainty_nll": 0.9347573673023897
+      }
+    },
+    {
+      "epoch": 25,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.21026839626060997,
+        "electrical": 0.23759641492904707,
+        "physics": 0.05660030134076462,
+        "total": 0.5081845802164148,
+        "uncertainty_nll": 0.866793466881026
+      },
+      "validation": {
+        "LSP": 0.2533381181604722,
+        "electrical": 0.40987397502450384,
+        "physics": 0.11097947026000303,
+        "total": 0.7417877884472117,
+        "uncertainty_nll": 0.9056370118085075
+      }
+    },
+    {
+      "epoch": 26,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.20108151921712328,
+        "electrical": 0.22752335676286245,
+        "physics": 0.0546835092542994,
+        "total": 0.48741522548500626,
+        "uncertainty_nll": 0.8481059049241234
+      },
+      "validation": {
+        "LSP": 0.23841935606563794,
+        "electrical": 0.3930611582363353,
+        "physics": 0.10916282026206746,
+        "total": 0.7086531274458941,
+        "uncertainty_nll": 0.8884752708322862
+      }
+    },
+    {
+      "epoch": 27,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.19358694342980393,
+        "electrical": 0.21879439569977174,
+        "physics": 0.055031738990953045,
+        "total": 0.4703753542865381,
+        "uncertainty_nll": 0.829689807853671
+      },
+      "validation": {
+        "LSP": 0.22001976896734798,
+        "electrical": 0.37177445608026843,
+        "physics": 0.11912111385780222,
+        "total": 0.6709045508328606,
+        "uncertainty_nll": 0.8674796567243688
+      }
+    },
+    {
+      "epoch": 28,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.19095011025103245,
+        "electrical": 0.21000468730926514,
+        "physics": 0.052825167173251315,
+        "total": 0.45746614874016595,
+        "uncertainty_nll": 0.8132757804799808
+      },
+      "validation": {
+        "LSP": 0.20258708245613996,
+        "electrical": 0.3562424617655137,
+        "physics": 0.1132318196051261,
+        "total": 0.6353651158949908,
+        "uncertainty_nll": 0.8513204392264871
+      }
+    },
+    {
+      "epoch": 29,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.18234814584168457,
+        "electrical": 0.20268679617360516,
+        "physics": 0.053198142413706066,
+        "total": 0.4408271460206922,
+        "uncertainty_nll": 0.7966552415789475
+      },
+      "validation": {
+        "LSP": 0.20203226804733276,
+        "electrical": 0.3429160146152272,
+        "physics": 0.1219359790577608,
+        "total": 0.6231194846770343,
+        "uncertainty_nll": 0.8318082150290994
+      }
+    },
+    {
+      "epoch": 30,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.17737934218917525,
+        "electrical": 0.19510151248484894,
+        "physics": 0.05330829473084932,
+        "total": 0.4272972745753098,
+        "uncertainty_nll": 0.7764785245516415
+      },
+      "validation": {
+        "LSP": 0.19151317933026482,
+        "electrical": 0.32698488445842966,
+        "physics": 0.12411937240292044,
+        "total": 0.5963848745121675,
+        "uncertainty_nll": 0.81301948743708
+      }
+    },
+    {
+      "epoch": 31,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.17238680983648202,
+        "electrical": 0.188014025120756,
+        "physics": 0.052241323420878234,
+        "total": 0.41386484344973834,
+        "uncertainty_nll": 0.7558322103783554
+      },
+      "validation": {
+        "LSP": 0.18494556511149687,
+        "electrical": 0.312102149514591,
+        "physics": 0.1154598462231019,
+        "total": 0.5716006629607256,
+        "uncertainty_nll": 0.7983001302270328
+      }
+    },
+    {
+      "epoch": 32,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.1698629876064595,
+        "electrical": 0.1816779653144542,
+        "physics": 0.0512562590655281,
+        "total": 0.4040677669353707,
+        "uncertainty_nll": 0.7429987898386549
+      },
+      "validation": {
+        "LSP": 0.18827851467272816,
+        "electrical": 0.29616758192286774,
+        "physics": 0.11532249529572094,
+        "total": 0.558486185354345,
+        "uncertainty_nll": 0.7888665788313922
+      }
+    },
+    {
+      "epoch": 33,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.1666463853186742,
+        "electrical": 0.1747870168918432,
+        "physics": 0.050237570961142904,
+        "total": 0.3926762968865718,
+        "uncertainty_nll": 0.7234323195668461
+      },
+      "validation": {
+        "LSP": 0.1716067307135638,
+        "electrical": 0.28059541758368994,
+        "physics": 0.11304115056991577,
+        "total": 0.5244241518132827,
+        "uncertainty_nll": 0.7661931304370656
+      }
+    },
+    {
+      "epoch": 34,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.164285848668222,
+        "electrical": 0.1688913274800413,
+        "physics": 0.04920921659061829,
+        "total": 0.38330791415606,
+        "uncertainty_nll": 0.707359397255177
+      },
+      "validation": {
+        "LSP": 0.18006273578195012,
+        "electrical": 0.26913823800928455,
+        "physics": 0.1139176599243108,
+        "total": 0.521501539735233,
+        "uncertainty_nll": 0.7625050937428194
+      }
+    },
+    {
+      "epoch": 35,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.16081184304957827,
+        "electrical": 0.16358563896089662,
+        "physics": 0.047761430256231384,
+        "total": 0.37336960460941865,
+        "uncertainty_nll": 0.6928738026813301
+      },
+      "validation": {
+        "LSP": 0.1823667073951048,
+        "electrical": 0.2555005858926212,
+        "physics": 0.11595245836412206,
+        "total": 0.5100109254612643,
+        "uncertainty_nll": 0.7471581445020787
+      }
+    },
+    {
+      "epoch": 36,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.15720331890093708,
+        "electrical": 0.15792432613941954,
+        "physics": 0.04730126580556928,
+        "total": 0.3629769975267991,
+        "uncertainty_nll": 0.6731794065263074
+      },
+      "validation": {
+        "LSP": 0.18006796977099251,
+        "electrical": 0.24147785481284648,
+        "physics": 0.10953736945110208,
+        "total": 0.49133512272554286,
+        "uncertainty_nll": 0.738561877783607
+      }
+    },
+    {
+      "epoch": 37,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.15983176374539537,
+        "electrical": 0.15274331550584264,
+        "physics": 0.046102874116562685,
+        "total": 0.3596165308612229,
+        "uncertainty_nll": 0.6642118674178311
+      },
+      "validation": {
+        "LSP": 0.17158251334639157,
+        "electrical": 0.2303610836758333,
+        "physics": 0.10278520899660447,
+        "total": 0.46892550762961893,
+        "uncertainty_nll": 0.7229270577430725
+      }
+    },
+    {
+      "epoch": 38,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.15551850863419245,
+        "electrical": 0.14858689074563147,
+        "physics": 0.046057194970233646,
+        "total": 0.350235217002802,
+        "uncertainty_nll": 0.6462531743091267
+      },
+      "validation": {
+        "LSP": 0.17855231271070593,
+        "electrical": 0.22083502657273235,
+        "physics": 0.11248867704587824,
+        "total": 0.4687087199267219,
+        "uncertainty_nll": 0.7114954752080581
+      }
+    },
+    {
+      "epoch": 39,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.15474760430435253,
+        "electrical": 0.14392964127629432,
+        "physics": 0.04442655635669589,
+        "total": 0.3437967847007851,
+        "uncertainty_nll": 0.6358313855472437
+      },
+      "validation": {
+        "LSP": 0.1844242883079192,
+        "electrical": 0.21040899262708776,
+        "physics": 0.10573231875896454,
+        "total": 0.46201301182017607,
+        "uncertainty_nll": 0.7092010477009941
+      }
+    },
+    {
+      "epoch": 40,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.15165075733498543,
+        "electrical": 0.13983721987736103,
+        "physics": 0.04309625420421145,
+        "total": 0.3352908895092066,
+        "uncertainty_nll": 0.6174808102056623
+      },
+      "validation": {
+        "LSP": 0.16692014389178333,
+        "electrical": 0.19793442137101117,
+        "physics": 0.1005436633439625,
+        "total": 0.42904538687537697,
+        "uncertainty_nll": 0.6805545140715207
+      }
+    },
+    {
+      "epoch": 41,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.1486369392019866,
+        "electrical": 0.13580701932896694,
+        "physics": 0.041674346935540826,
+        "total": 0.32697290125719153,
+        "uncertainty_nll": 0.600532628476533
+      },
+      "validation": {
+        "LSP": 0.17647444009780883,
+        "electrical": 0.1876318237360786,
+        "physics": 0.09929540490402895,
+        "total": 0.4279195498017704,
+        "uncertainty_nll": 0.6804933477850521
+      }
+    },
+    {
+      "epoch": 42,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.1478731918109383,
+        "electrical": 0.13101083955563486,
+        "physics": 0.04046704741587979,
+        "total": 0.3204556940858194,
+        "uncertainty_nll": 0.5886309457484639
+      },
+      "validation": {
+        "LSP": 0.17915356895502876,
+        "electrical": 0.17714376800200518,
+        "physics": 0.09770122766494752,
+        "total": 0.41923993405173804,
+        "uncertainty_nll": 0.6726438410141888
+      }
+    },
+    {
+      "epoch": 43,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.14522383809957268,
+        "electrical": 0.1272647281487783,
+        "physics": 0.03942137814006257,
+        "total": 0.31288770344406586,
+        "uncertainty_nll": 0.5714544744991319
+      },
+      "validation": {
+        "LSP": 0.17142657988211688,
+        "electrical": 0.16907270305296954,
+        "physics": 0.09210104442694608,
+        "total": 0.40077474748387054,
+        "uncertainty_nll": 0.6529031501096838
+      }
+    },
+    {
+      "epoch": 44,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.14282890846288535,
+        "electrical": 0.12393850723642102,
+        "physics": 0.03886841671348833,
+        "total": 0.30627556568149916,
+        "uncertainty_nll": 0.5569526170539023
+      },
+      "validation": {
+        "LSP": 0.18006628856939427,
+        "electrical": 0.16031279984642477,
+        "physics": 0.09280270421329667,
+        "total": 0.400877571105957,
+        "uncertainty_nll": 0.6531537645003375
+      }
+    },
+    {
+      "epoch": 45,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.1425679790227521,
+        "electrical": 0.12063052814339967,
+        "physics": 0.03840394532565553,
+        "total": 0.3018383724286914,
+        "uncertainty_nll": 0.5423736627792514
+      },
+      "validation": {
+        "LSP": 0.17158202809446,
+        "electrical": 0.1511512328596676,
+        "physics": 0.08985772417748676,
+        "total": 0.3810012186274809,
+        "uncertainty_nll": 0.6262133528204525
+      }
+    },
+    {
+      "epoch": 46,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.14212813936553495,
+        "electrical": 0.1177785876254501,
+        "physics": 0.03770672330657207,
+        "total": 0.29767751377048796,
+        "uncertainty_nll": 0.5291752872508686
+      },
+      "validation": {
+        "LSP": 0.17339842670104083,
+        "electrical": 0.14425497826407938,
+        "physics": 0.08402228662196327,
+        "total": 0.3741175490267136,
+        "uncertainty_nll": 0.6251491399372325
+      }
+    },
+    {
+      "epoch": 47,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.13945798755906727,
+        "electrical": 0.11533653957354449,
+        "physics": 0.03669773413646516,
+        "total": 0.29181239351608523,
+        "uncertainty_nll": 0.5201709283491409
+      },
+      "validation": {
+        "LSP": 0.1864336165435174,
+        "electrical": 0.13876112208646887,
+        "physics": 0.09201456137439784,
+        "total": 0.3842928977573619,
+        "uncertainty_nll": 0.6298759060747483
+      }
+    },
+    {
+      "epoch": 48,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.1399251949231871,
+        "electrical": 0.11258145585504335,
+        "physics": 0.03666478205672865,
+        "total": 0.28874485585106513,
+        "uncertainty_nll": 0.5047754085306865
+      },
+      "validation": {
+        "LSP": 0.1703374389339896,
+        "electrical": 0.13301479115205653,
+        "physics": 0.0868090392473866,
+        "total": 0.3592835966278525,
+        "uncertainty_nll": 0.5977728486061096
+      }
+    },
+    {
+      "epoch": 49,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.13752546706921495,
+        "electrical": 0.11025581054465393,
+        "physics": 0.03591824549601415,
+        "total": 0.28310158132986213,
+        "uncertainty_nll": 0.49089648998633917
+      },
+      "validation": {
+        "LSP": 0.1760241168386796,
+        "electrical": 0.12842730704475852,
+        "physics": 0.08485465181224486,
+        "total": 0.3597802996635437,
+        "uncertainty_nll": 0.5974499898798326
+      }
+    },
+    {
+      "epoch": 50,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.13564789505591385,
+        "electrical": 0.10849622014524982,
+        "physics": 0.034664802573176626,
+        "total": 0.2785738008164596,
+        "uncertainty_nll": 0.4806049062261762
+      },
+      "validation": {
+        "LSP": 0.17783117171596077,
+        "electrical": 0.12287889929378734,
+        "physics": 0.08517064119086545,
+        "total": 0.3557208706350887,
+        "uncertainty_nll": 0.5891919283305898
+      }
+    },
+    {
+      "epoch": 51,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.1336902132938349,
+        "electrical": 0.10604192364250555,
+        "physics": 0.03380626999384017,
+        "total": 0.27311682445166585,
+        "uncertainty_nll": 0.4648560482515171
+      },
+      "validation": {
+        "LSP": 0.16679422434638527,
+        "electrical": 0.11713563308996312,
+        "physics": 0.08114797994494438,
+        "total": 0.33641420848229353,
+        "uncertainty_nll": 0.562798889244304
+      }
+    },
+    {
+      "epoch": 52,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.13380837509899335,
+        "electrical": 0.10348220027473469,
+        "physics": 0.033071733246594015,
+        "total": 0.2699457022864399,
+        "uncertainty_nll": 0.45467210579473727
+      },
+      "validation": {
+        "LSP": 0.1861331473378574,
+        "electrical": 0.11189912557601929,
+        "physics": 0.08073981062454336,
+        "total": 0.35140545894117914,
+        "uncertainty_nll": 0.5830246041802799
+      }
+    },
+    {
+      "epoch": 53,
+      "learning_rate": 5e-06,
+      "patience_counter": 2,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.13381166974139527,
+        "electrical": 0.1014049438843734,
+        "physics": 0.032593755742868484,
+        "total": 0.2671948203917327,
+        "uncertainty_nll": 0.44400156260057305
+      },
+      "validation": {
+        "LSP": 0.18105865489034093,
+        "electrical": 0.10811678662019618,
+        "physics": 0.07769333466010934,
+        "total": 0.3408865409738877,
+        "uncertainty_nll": 0.5680617318433874
+      }
+    },
+    {
+      "epoch": 54,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.13452371666438367,
+        "electrical": 0.09988914289155208,
+        "physics": 0.031821545029094296,
+        "total": 0.26556421890095677,
+        "uncertainty_nll": 0.4320978468509047
+      },
+      "validation": {
+        "LSP": 0.16130846502149807,
+        "electrical": 0.10492106185239904,
+        "physics": 0.07307709696538309,
+        "total": 0.3148608390022727,
+        "uncertainty_nll": 0.5341638088226318
+      }
+    },
+    {
+      "epoch": 55,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.13645578398107613,
+        "electrical": 0.09780853470513567,
+        "physics": 0.031075765033085793,
+        "total": 0.26518884331551873,
+        "uncertainty_nll": 0.4320359109444042
+      },
+      "validation": {
+        "LSP": 0.1835966664202073,
+        "electrical": 0.10146539106088526,
+        "physics": 0.07621248162844602,
+        "total": 0.33628006893045764,
+        "uncertainty_nll": 0.5670856454793145
+      }
+    },
+    {
+      "epoch": 56,
+      "learning_rate": 5e-06,
+      "patience_counter": 2,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.1301915621957057,
+        "electrical": 0.09641228577195296,
+        "physics": 0.030949069732011145,
+        "total": 0.25660004999266267,
+        "uncertainty_nll": 0.41422962769323735
+      },
+      "validation": {
+        "LSP": 0.18170482709127314,
+        "electrical": 0.09823134646696204,
+        "physics": 0.07083615007645944,
+        "total": 0.32853562831878663,
+        "uncertainty_nll": 0.5469721156008104
+      }
+    },
+    {
+      "epoch": 57,
+      "learning_rate": 5e-06,
+      "patience_counter": 3,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.12869964138736198,
+        "electrical": 0.0948518734788617,
+        "physics": 0.030755638658696734,
+        "total": 0.2528134869869793,
+        "uncertainty_nll": 0.40070560049628934
+      },
+      "validation": {
+        "LSP": 0.17380239402546602,
+        "electrical": 0.09410057278240429,
+        "physics": 0.06939521556829704,
+        "total": 0.31509214990279255,
+        "uncertainty_nll": 0.5274122315294603
+      }
+    },
+    {
+      "epoch": 58,
+      "learning_rate": 5e-06,
+      "patience_counter": 4,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.12741598699464202,
+        "electrical": 0.09322159507432533,
+        "physics": 0.030053975952591263,
+        "total": 0.24915209714068423,
+        "uncertainty_nll": 0.3899665382925253
+      },
+      "validation": {
+        "LSP": 0.1804271548986435,
+        "electrical": 0.09205723019207225,
+        "physics": 0.06923337747507236,
+        "total": 0.3200378253179438,
+        "uncertainty_nll": 0.5356683184118832
+      }
+    },
+    {
+      "epoch": 59,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.12860770477998726,
+        "electrical": 0.09177475321761386,
+        "physics": 0.029440641668903082,
+        "total": 0.24845303944278146,
+        "uncertainty_nll": 0.3847678056884194
+      },
+      "validation": {
+        "LSP": 0.16711970392395467,
+        "electrical": 0.08894013236550724,
+        "physics": 0.06848491671330789,
+        "total": 0.30170742448638466,
+        "uncertainty_nll": 0.5020421238506542
+      }
+    },
+    {
+      "epoch": 60,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.12969438512599452,
+        "electrical": 0.09065866368393016,
+        "physics": 0.029688038365722917,
+        "total": 0.24802888849590196,
+        "uncertainty_nll": 0.37538854393896576
+      },
+      "validation": {
+        "LSP": 0.1716373126296436,
+        "electrical": 0.08732539976344389,
+        "physics": 0.06687543276039994,
+        "total": 0.3040396967354943,
+        "uncertainty_nll": 0.5002870188039892
+      }
+    },
+    {
+      "epoch": 61,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.1260457054496332,
+        "electrical": 0.08906288654306223,
+        "physics": 0.029483025050362818,
+        "total": 0.2422153449995549,
+        "uncertainty_nll": 0.3652369693203611
+      },
+      "validation": {
+        "LSP": 0.1704829536816653,
+        "electrical": 0.08419365935465868,
+        "physics": 0.06983884415205788,
+        "total": 0.3011868119239807,
+        "uncertainty_nll": 0.5111712343552534
+      }
+    },
+    {
+      "epoch": 62,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.12763491003967964,
+        "electrical": 0.08728728698243915,
+        "physics": 0.028504958880585355,
+        "total": 0.24148117044867387,
+        "uncertainty_nll": 0.3601497524950702
+      },
+      "validation": {
+        "LSP": 0.19034438694224637,
+        "electrical": 0.08266959611107322,
+        "physics": 0.06779380416607156,
+        "total": 0.3199684146572562,
+        "uncertainty_nll": 0.5323254213613622
+      }
+    },
+    {
+      "epoch": 63,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.12175043803548882,
+        "electrical": 0.08668374945850178,
+        "physics": 0.028238594103631668,
+        "total": 0.23395612996391507,
+        "uncertainty_nll": 0.3410072591280486
+      },
+      "validation": {
+        "LSP": 0.16471494120710037,
+        "electrical": 0.07919142298838672,
+        "physics": 0.06486089146312546,
+        "total": 0.2875680236255421,
+        "uncertainty_nll": 0.484068062024958
+      }
+    },
+    {
+      "epoch": 64,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.12236393881850541,
+        "electrical": 0.08544746185537683,
+        "physics": 0.028050203028160758,
+        "total": 0.23288837999235595,
+        "uncertainty_nll": 0.33323840439059327
+      },
+      "validation": {
+        "LSP": 0.17514232887941247,
+        "electrical": 0.07847251506412731,
+        "physics": 0.06578750474488033,
+        "total": 0.29810156436527474,
+        "uncertainty_nll": 0.49500953449922447
+      }
+    },
+    {
+      "epoch": 65,
+      "learning_rate": 5e-06,
+      "patience_counter": 2,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.12055936260514905,
+        "electrical": 0.08444311698624835,
+        "physics": 0.027661833223470607,
+        "total": 0.22936860269160597,
+        "uncertainty_nll": 0.3213515074752824
+      },
+      "validation": {
+        "LSP": 0.1794931883321089,
+        "electrical": 0.07697666848407073,
+        "physics": 0.06563319127787562,
+        "total": 0.3012136999298545,
+        "uncertainty_nll": 0.501077431790969
+      }
+    },
+    {
+      "epoch": 66,
+      "learning_rate": 5e-06,
+      "patience_counter": 3,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.11983830244260063,
+        "electrical": 0.08293285576580567,
+        "physics": 0.027487946058768545,
+        "total": 0.22666544294773752,
+        "uncertainty_nll": 0.31295801822795616
+      },
+      "validation": {
+        "LSP": 0.1826800195609822,
+        "electrical": 0.07480643426670748,
+        "physics": 0.06482612795251257,
+        "total": 0.3022082076353185,
+        "uncertainty_nll": 0.5054781254600076
+      }
+    },
+    {
+      "epoch": 67,
+      "learning_rate": 5e-06,
+      "patience_counter": 4,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.11964571580095583,
+        "electrical": 0.08175506366869595,
+        "physics": 0.0272253758370269,
+        "total": 0.22486403510733635,
+        "uncertainty_nll": 0.3059128436545965
+      },
+      "validation": {
+        "LSP": 0.17526725039762608,
+        "electrical": 0.0730964390670552,
+        "physics": 0.06366184011978261,
+        "total": 0.2917334714356591,
+        "uncertainty_nll": 0.48542444705963134
+      }
+    },
+    {
+      "epoch": 68,
+      "learning_rate": 5e-06,
+      "patience_counter": 5,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.1185638604813094,
+        "electrical": 0.08097380560211392,
+        "physics": 0.02657942477141926,
+        "total": 0.22229160511597795,
+        "uncertainty_nll": 0.2956022233681908
+      },
+      "validation": {
+        "LSP": 0.17498397178509656,
+        "electrical": 0.0708167421467164,
+        "physics": 0.06152710526743356,
+        "total": 0.2883696741917554,
+        "uncertainty_nll": 0.4822168273084304
+      }
+    },
+    {
+      "epoch": 69,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.11803394357580285,
+        "electrical": 0.07933228036722241,
+        "physics": 0.026638703041179906,
+        "total": 0.21970353476171758,
+        "uncertainty_nll": 0.28691393941684235
+      },
+      "validation": {
+        "LSP": 0.17430624067783357,
+        "electrical": 0.06969197515179129,
+        "physics": 0.06219812868272557,
+        "total": 0.28619627672083237,
+        "uncertainty_nll": 0.47077209318385405
+      }
+    },
+    {
+      "epoch": 70,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.1186708816404426,
+        "electrical": 0.07855556224197627,
+        "physics": 0.02615233529169313,
+        "total": 0.21926531570880867,
+        "uncertainty_nll": 0.28386342078664245
+      },
+      "validation": {
+        "LSP": 0.18047599266557132,
+        "electrical": 0.069016713254592,
+        "physics": 0.06118105823064551,
+        "total": 0.2923460413427914,
+        "uncertainty_nll": 0.4899805321412928
+      }
+    },
+    {
+      "epoch": 71,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.11880054020118158,
+        "electrical": 0.07757214533796825,
+        "physics": 0.025800921616660977,
+        "total": 0.21789899253689046,
+        "uncertainty_nll": 0.2757205481178722
+      },
+      "validation": {
+        "LSP": 0.174027080746258,
+        "electrical": 0.06660630597787745,
+        "physics": 0.05950662522193263,
+        "total": 0.28201291175449594,
+        "uncertainty_nll": 0.4705510363859289
+      }
+    },
+    {
+      "epoch": 72,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.11735783640994776,
+        "electrical": 0.07657498214529418,
+        "physics": 0.02594544151811447,
+        "total": 0.215078611149191,
+        "uncertainty_nll": 0.26724319715253475
+      },
+      "validation": {
+        "LSP": 0.1730080041815253,
+        "electrical": 0.0646953177802703,
+        "physics": 0.05941146702012595,
+        "total": 0.2788481088245616,
+        "uncertainty_nll": 0.46642701275208415
+      }
+    },
+    {
+      "epoch": 73,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.11874962766184384,
+        "electrical": 0.07564834087783419,
+        "physics": 0.026289437296956212,
+        "total": 0.21564217265342867,
+        "uncertainty_nll": 0.2671474889029235
+      },
+      "validation": {
+        "LSP": 0.17838258182301242,
+        "electrical": 0.06605140023371753,
+        "physics": 0.06293417557197459,
+        "total": 0.287227869384429,
+        "uncertainty_nll": 0.47827280970180736
+      }
+    },
+    {
+      "epoch": 74,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.11616893208096295,
+        "electrical": 0.075001054943649,
+        "physics": 0.024764921977096597,
+        "total": 0.2111918539069105,
+        "uncertainty_nll": 0.251847752490592
+      },
+      "validation": {
+        "LSP": 0.1700830703272539,
+        "electrical": 0.06276510077364304,
+        "physics": 0.05800475539530025,
+        "total": 0.273189938769621,
+        "uncertainty_nll": 0.4588067966348985
+      }
+    },
+    {
+      "epoch": 75,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.11442922274792212,
+        "electrical": 0.07364505912235557,
+        "physics": 0.02497727256891856,
+        "total": 0.2078787124833686,
+        "uncertainty_nll": 0.24622505282904558
+      },
+      "validation": {
+        "LSP": 0.1704702005666845,
+        "electrical": 0.06178916491129819,
+        "physics": 0.0566331496790928,
+        "total": 0.2714758157730103,
+        "uncertainty_nll": 0.44452991134980147
+      }
+    },
+    {
+      "epoch": 76,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.1167438577486438,
+        "electrical": 0.07272903655901053,
+        "physics": 0.024480088273662493,
+        "total": 0.20896174367164766,
+        "uncertainty_nll": 0.24289642480436544
+      },
+      "validation": {
+        "LSP": 0.179375597133356,
+        "electrical": 0.061200199057074155,
+        "physics": 0.05885204870034667,
+        "total": 0.2825885898926679,
+        "uncertainty_nll": 0.4871436995618484
+      }
+    },
+    {
+      "epoch": 77,
+      "learning_rate": 5e-06,
+      "patience_counter": 2,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.1120271696729431,
+        "electrical": 0.07217177467792142,
+        "physics": 0.024377501343296953,
+        "total": 0.20283996106669025,
+        "uncertainty_nll": 0.22655539359935334
+      },
+      "validation": {
+        "LSP": 0.17918444135609796,
+        "electrical": 0.05952791422605515,
+        "physics": 0.05809210904819124,
+        "total": 0.280317808600033,
+        "uncertainty_nll": 0.4835564234677483
+      }
+    },
+    {
+      "epoch": 78,
+      "learning_rate": 5e-06,
+      "patience_counter": 3,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.11472021051976705,
+        "electrical": 0.07106847339885898,
+        "physics": 0.023950944547548217,
+        "total": 0.2045512906502081,
+        "uncertainty_nll": 0.23154652136035014
+      },
+      "validation": {
+        "LSP": 0.1791036868796629,
+        "electrical": 0.06033454423441607,
+        "physics": 0.05873195524601375,
+        "total": 0.28071302946876076,
+        "uncertainty_nll": 0.4731038261862362
+      }
+    },
+    {
+      "epoch": 79,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.11229637977728156,
+        "electrical": 0.07026291856599166,
+        "physics": 0.02355469248136926,
+        "total": 0.20048573283475907,
+        "uncertainty_nll": 0.21720046772359933
+      },
+      "validation": {
+        "LSP": 0.16345221978776595,
+        "electrical": 0.056764862993184256,
+        "physics": 0.05640010618988205,
+        "total": 0.2585237776531893,
+        "uncertainty_nll": 0.4277332060477313
+      }
+    },
+    {
+      "epoch": 80,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10905667932316379,
+        "electrical": 0.06933116836926129,
+        "physics": 0.023497938903745432,
+        "total": 0.19565029238422538,
+        "uncertainty_nll": 0.20426127030426064
+      },
+      "validation": {
+        "LSP": 0.16578037055099712,
+        "electrical": 0.05662475745467579,
+        "physics": 0.055824773736736354,
+        "total": 0.2605100624701556,
+        "uncertainty_nll": 0.42715006014880014
+      }
+    },
+    {
+      "epoch": 81,
+      "learning_rate": 5e-06,
+      "patience_counter": 0,
+      "strict_improvement": true,
+      "train": {
+        "LSP": 0.10695048632016176,
+        "electrical": 0.0688638048574567,
+        "physics": 0.023704823768078153,
+        "total": 0.19252408713406002,
+        "uncertainty_nll": 0.1919669189220606
+      },
+      "validation": {
+        "LSP": 0.16382228714578292,
+        "electrical": 0.05623115791993983,
+        "physics": 0.05737878003102891,
+        "total": 0.2576291806557599,
+        "uncertainty_nll": 0.4072420190362369
+      }
+    },
+    {
+      "epoch": 82,
+      "learning_rate": 5e-06,
+      "patience_counter": 1,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10986021644770665,
+        "electrical": 0.06774544117232077,
+        "physics": 0.023606718847259685,
+        "total": 0.1944532055391495,
+        "uncertainty_nll": 0.19531063978415217
+      },
+      "validation": {
+        "LSP": 0.1839494708706351,
+        "electrical": 0.05618010864538305,
+        "physics": 0.05780756193048814,
+        "total": 0.2820088688065024,
+        "uncertainty_nll": 0.49074043596492095
+      }
+    },
+    {
+      "epoch": 83,
+      "learning_rate": 5e-06,
+      "patience_counter": 2,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.1079063455654197,
+        "electrical": 0.0672071065206021,
+        "physics": 0.023160627865526702,
+        "total": 0.19127529338978264,
+        "uncertainty_nll": 0.1842731256932671
+      },
+      "validation": {
+        "LSP": 0.1786685743752648,
+        "electrical": 0.05490637132350136,
+        "physics": 0.05617480569464319,
+        "total": 0.27449220313745387,
+        "uncertainty_nll": 0.4812966690343969
+      }
+    },
+    {
+      "epoch": 84,
+      "learning_rate": 5e-06,
+      "patience_counter": 3,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10484109089060469,
+        "electrical": 0.0665396298600423,
+        "physics": 0.022923868813781063,
+        "total": 0.18685966550089214,
+        "uncertainty_nll": 0.17203569802654883
+      },
+      "validation": {
+        "LSP": 0.17848000508897444,
+        "electrical": 0.05412066578865051,
+        "physics": 0.05642054707688444,
+        "total": 0.272833136249991,
+        "uncertainty_nll": 0.46612637744230384
+      }
+    },
+    {
+      "epoch": 85,
+      "learning_rate": 5e-06,
+      "patience_counter": 4,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10404222253628694,
+        "electrical": 0.06579733267968746,
+        "physics": 0.022860626325423367,
+        "total": 0.18497250850544225,
+        "uncertainty_nll": 0.1654953949120888
+      },
+      "validation": {
+        "LSP": 0.17995328166905572,
+        "electrical": 0.053526180456666385,
+        "physics": 0.0547940621700357,
+        "total": 0.2742482588571661,
+        "uncertainty_nll": 0.48661135224735036
+      }
+    },
+    {
+      "epoch": 86,
+      "learning_rate": 5e-06,
+      "patience_counter": 5,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10662838673487501,
+        "electrical": 0.06512629187068043,
+        "physics": 0.02253067007578443,
+        "total": 0.1870285576694744,
+        "uncertainty_nll": 0.17029360045165126
+      },
+      "validation": {
+        "LSP": 0.17969555995043587,
+        "electrical": 0.05374966579325059,
+        "physics": 0.054486839845776555,
+        "total": 0.2735218602068284,
+        "uncertainty_nll": 0.47461175638086656
+      }
+    },
+    {
+      "epoch": 87,
+      "learning_rate": 5e-06,
+      "patience_counter": 6,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.1069241375533601,
+        "electrical": 0.0645172882396755,
+        "physics": 0.022297381476283594,
+        "total": 0.18648894840452868,
+        "uncertainty_nll": 0.1671661287003903
+      },
+      "validation": {
+        "LSP": 0.1707768317531137,
+        "electrical": 0.052105000264504375,
+        "physics": 0.052221065409043255,
+        "total": 0.2608309745788574,
+        "uncertainty_nll": 0.4456564131905051
+      }
+    },
+    {
+      "epoch": 88,
+      "learning_rate": 5e-06,
+      "patience_counter": 7,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10422634502555606,
+        "electrical": 0.06386669292460362,
+        "physics": 0.022058362043645703,
+        "total": 0.18244600139851133,
+        "uncertainty_nll": 0.15470913215235332
+      },
+      "validation": {
+        "LSP": 0.18656634057269378,
+        "electrical": 0.05285887718200684,
+        "physics": 0.05440619390677003,
+        "total": 0.2816872323260588,
+        "uncertainty_nll": 0.5188028840457692
+      }
+    },
+    {
+      "epoch": 89,
+      "learning_rate": 5e-06,
+      "patience_counter": 8,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10377421710515473,
+        "electrical": 0.06313959508049784,
+        "physics": 0.022119995889835483,
+        "total": 0.18112072921215708,
+        "uncertainty_nll": 0.15141829850458507
+      },
+      "validation": {
+        "LSP": 0.18511964994318345,
+        "electrical": 0.05180757001918905,
+        "physics": 0.05416578683344757,
+        "total": 0.2786083722815794,
+        "uncertainty_nll": 0.508628276867025
+      }
+    },
+    {
+      "epoch": 90,
+      "learning_rate": 5e-06,
+      "patience_counter": 9,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10253074374781945,
+        "electrical": 0.06267516394152566,
+        "physics": 0.02199961754779455,
+        "total": 0.1789045859415632,
+        "uncertainty_nll": 0.14197584479136238
+      },
+      "validation": {
+        "LSP": 0.18393950760364533,
+        "electrical": 0.05088168032029096,
+        "physics": 0.05290872691308751,
+        "total": 0.27600879669189454,
+        "uncertainty_nll": 0.5062997190391316
+      }
+    },
+    {
+      "epoch": 91,
+      "learning_rate": 5e-06,
+      "patience_counter": 10,
+      "strict_improvement": false,
+      "train": {
+        "LSP": 0.10445779779982879,
+        "electrical": 0.06227454458521964,
+        "physics": 0.02161692171540583,
+        "total": 0.18055993648248642,
+        "uncertainty_nll": 0.14685036101564222
+      },
+      "validation": {
+        "LSP": 0.1778454971664092,
+        "electrical": 0.05049405816723319,
+        "physics": 0.05137862707762157,
+        "total": 0.2665707265629488,
+        "uncertainty_nll": 0.45635176756802726
+      }
+    }
+  ]
+}

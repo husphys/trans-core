@@ -1,0 +1,15 @@
+{
+  "counts": {
+    "test": 18676,
+    "train": 149405,
+    "validation": 18676
+  },
+  "manifest_directory": "/home/diy-hus/transfomfer/data/splits/mepi_v1",
+  "method": "seeded material-stratified sample split",
+  "ratios": {
+    "test": 0.1,
+    "train": 0.8,
+    "validation": 0.1
+  },
+  "seed": 42
+}

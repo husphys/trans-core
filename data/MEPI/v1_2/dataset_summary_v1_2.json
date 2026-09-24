@@ -1,0 +1,58 @@
+{
+  "B1024_shape": [
+    862,
+    1024
+  ],
+  "LSP_raw": {
+    "max": 0.7769209698064979,
+    "median": 0.6051258875141451,
+    "min": 0.3020859641475587
+  },
+  "candidate_core_counts": {
+    "COMMERCIAL": 417,
+    "FE": 445
+  },
+  "group_counts": {
+    "test": 9,
+    "train": 72,
+    "validation": 9
+  },
+  "groups_with_zero_qc_valid_rows": [
+    "F1000_V5p6_RL49p6025_SINE"
+  ],
+  "intended_finetuning_command": "python -m src.mepi_v1.finetune --config configs/finetune_v1_2.yaml",
+  "master_rows": 975,
+  "mu_LSP_train": 0.6030550333971313,
+  "pretrained_checkpoint": "experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt",
+  "pretrained_checkpoint_sha256": "fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c",
+  "primary_measured_rows": 900,
+  "processing_version": "mepi-v1.2-lsp-split-normalization-v1",
+  "protocol_sha256": "c0fd2fe8aafc0c55dc0b6c525e341d0458782391f6476831da2e3cc5cf401988",
+  "protocol_version": "MEPI-FROZEN-PROTOCOL v1.2",
+  "qc_valid_group_count": 89,
+  "qc_valid_rows": 862,
+  "row_counts": {
+    "test": 90,
+    "train": 687,
+    "validation": 85
+  },
+  "sigma_LSP_train": 0.08375144701048931,
+  "split_hash": "01d097ff8bd1d3d8e09d1ef6affd508e72bfc11b3e81ac74034862103870a166",
+  "split_seed": 42,
+  "statuses": {
+    "B_READY": true,
+    "ELECTRICAL_QC_READY": true,
+    "LEAKAGE_GUARD_READY": true,
+    "LSP_DEFINITION_READY": true,
+    "LSP_TARGET_READY": true,
+    "NORMALIZATION_READY": true,
+    "PRIMARY_DATASET_READY": true,
+    "SPLIT_READY": true,
+    "TEMPERATURE_MAPPING_READY": true,
+    "TRAIN_READY": true
+  },
+  "supplementary_excluded_rows": 75,
+  "test_accessed_for_model_selection": false,
+  "test_evaluations": 0,
+  "training_run": false
+}

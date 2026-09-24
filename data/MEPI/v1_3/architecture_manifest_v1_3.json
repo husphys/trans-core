@@ -1,0 +1,108 @@
+{
+  "allow_training": false,
+  "architecture": {
+    "depth": 8,
+    "downstream_untrained_parameters": 5856452,
+    "family": "xLSTM",
+    "fusion": "MultiheadAttention(embed_dim=256, num_heads=8, dropout=0.0, batch_first=True) plus residual LayerNorm(256)",
+    "latent_dim": 256,
+    "module_parameter_counts": {
+      "backbone": 5267456,
+      "fusion": 263680,
+      "norm": 512,
+      "operating_encoder_pretrain": 67072,
+      "temporary_heads": 165130,
+      "waveform_encoder": 206080
+    },
+    "pooling": "mean over sequence dimension after xLSTM backbone",
+    "pretraining_trainable_parameters": 5969930,
+    "xLSTM_block": {
+      "dropout": 0.0,
+      "gate": "Linear(256,256) then Sigmoid",
+      "memory": "single-layer unidirectional torch.nn.LSTM(256, 256, batch_first=True)",
+      "normalization": "LayerNorm(256)",
+      "projection": "Linear(256,256)",
+      "residual": "x + gate(LayerNorm(x)) * projection(LSTM(LayerNorm(x)))"
+    }
+  },
+  "checkpoint": {
+    "expected_missing_downstream_key_count": 26,
+    "matched_transfer_key_count": 88,
+    "model_state_key_count": 142,
+    "path": "experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt",
+    "pretraining_only_key_count": 54,
+    "sha256": "fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c",
+    "shape_mismatches": [],
+    "strict_module_loads": true,
+    "unexpected_keys": []
+  },
+  "dataset_protocol": "MEPI-FROZEN-PROTOCOL v1.2",
+  "dataset_references": {
+    "checksum_manifest": {
+      "path": "data/MEPI/v1_2/checksums_v1_2.sha256",
+      "sha256": "4f941db843bda4ae10edeb7e1ebea4a2245ae45a09e6785fca60c84d982dbe5a"
+    },
+    "feature_schema": {
+      "path": "data/MEPI/v1_2/feature_schema_v1_2.json",
+      "sha256": "d1aadd4c7d40e1c40847049194ac214722b1a045b370bf37e58d908c1816f5ec"
+    },
+    "normalization": {
+      "path": "data/MEPI/v1_2/train_normalization_v1_2.json",
+      "sha256": "ea9858df0b5367a8cf8c7a73cf36073a6e255564d35b290e61fabf3d56be6ab2"
+    },
+    "path": {
+      "path": "data/MEPI/v1_2/samples_qc_valid_v1_2.csv",
+      "sha256": "d280a1ca6c54bb77100779b1b458d16269eaeba5ba834a15f09ff4cf36d04273"
+    },
+    "sample_ids_path": {
+      "path": "data/MEPI/v1_2/sample_ids_v1_2.npy",
+      "sha256": "59387a498f642cea12b40763669fcd7a62db1bfb1d12b09c972b095561966fa9"
+    },
+    "split_manifest": {
+      "path": "data/MEPI/v1_2/split_manifest_v1_2.csv",
+      "sha256": "01d097ff8bd1d3d8e09d1ef6affd508e72bfc11b3e81ac74034862103870a166"
+    },
+    "waveform_path": {
+      "path": "data/MEPI/v1_2/B1024_v1_2.npy",
+      "sha256": "0051f21939faddf5f23068c6acd29a0c0be12c93769a713b46b69338d8109c6f"
+    }
+  },
+  "group_counts": {
+    "test": 9,
+    "train": 72,
+    "validation": 9
+  },
+  "intended_command": "python -m src.mepi_v1.finetune --config configs/finetune_v1_3.yaml",
+  "primary_measured_rows": 900,
+  "protocol_sha256": "99b31c82a3a92b6d5446477cbb9a6ae5fe40afae0476a6533324b2b14898ccfa",
+  "protocol_version": "MEPI-FROZEN-PROTOCOL v1.3",
+  "qc_valid_rows": 862,
+  "row_counts": {
+    "test": 90,
+    "train": 687,
+    "validation": 85
+  },
+  "selection": {
+    "best_epoch": 10,
+    "metric": "validation MAE_norm",
+    "scope": "selected under the MagNet depth-study protocol only",
+    "selected_with_validation_only": true,
+    "subset": "MagNet validation",
+    "test_evaluations": 0,
+    "test_split_accessed": false,
+    "value": 0.020495040982892985
+  },
+  "statuses": {
+    "CHECKPOINT_ARCHITECTURE_MATCH": true,
+    "CHECKPOINT_PROVENANCE_VERIFIED": true,
+    "LEAKAGE_GUARD_READY": true,
+    "LSP_DEFINITION_READY": true,
+    "MANUSCRIPT_BIGRU_RESULTS_LEGACY": true,
+    "NORMALIZATION_READY": true,
+    "PRETRAINED_BACKBONE_LOAD_READY": true,
+    "TRAIN_READY": true
+  },
+  "test_accessed": false,
+  "test_evaluations": 0,
+  "training_run": false
+}

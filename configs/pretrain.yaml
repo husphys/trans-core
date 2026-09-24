@@ -1,0 +1,32 @@
+# LEGACY PRE-PROTOCOL CONFIG. The clean pipeline uses configs/pretrain_<backbone>.yaml.
+paths_config: configs/paths.yaml
+phase: A
+allow_full_training: false
+seed: 42
+device: auto
+precision: amp
+batch_size: 48
+gradient_accumulation_steps: 1
+num_workers: 4
+pin_memory: true
+epochs: 20
+smoke:
+  enabled: true
+  max_train_batches: 2
+  max_validation_batches: 1
+split:
+  train: 0.70
+  validation: 0.15
+  test: 0.15
+target:
+  transform: log1p_standardize
+  scaler_fit: train_only
+loss:
+  mse: 1.0
+  mae: 0.3
+checkpoint_metric: validation_mae_normalized
+backbones: [TCN, LSTM, BiLSTM, LSTM-Attention, GRU, BiGRU, RWKV, xLSTM]
+model:
+  waveform_channels: [64, 128, 128]
+  latent_dim: 256
+  recurrent_layers: 4

@@ -1,0 +1,17 @@
+{
+  "pretraining": [
+    "frequency_hz",
+    "temperature_c"
+  ],
+  "fine_tuning": [
+    "frequency_hz",
+    "vin_rms_v",
+    "phase_shift_deg",
+    "temperature_ambient_c",
+    "B_peak_t",
+    "B_rms",
+    "B_thd_percent",
+    "dBdt_max",
+    "form_factor"
+  ]
+}

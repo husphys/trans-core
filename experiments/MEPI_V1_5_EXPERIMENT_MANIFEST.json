@@ -1,0 +1,74 @@
+{
+  "edges": [
+    [
+      "32_xlstm_v1_5_finetune",
+      "33_xlstm_v1_5_loss_weight_sensitivity"
+    ],
+    [
+      "33_xlstm_v1_5_loss_weight_sensitivity",
+      "34_xlstm_v1_5_final_training_and_test"
+    ],
+    [
+      "34_xlstm_v1_5_final_training_and_test",
+      "35_xlstm_v1_5_frequency_screening"
+    ]
+  ],
+  "nodes": {
+    "32_xlstm_v1_5_finetune": {
+      "depends_on": [],
+      "resume_next_epoch": 50,
+      "status": "READY_FOR_MANUAL_EXACT_STATE_CONTINUATION"
+    },
+    "33_xlstm_v1_5_loss_weight_sensitivity": {
+      "baseline_reuse_valid": true,
+      "configuration_count": 12,
+      "depends_on": [
+        "32_xlstm_v1_5_finetune"
+      ],
+      "new_runs_required": 11,
+      "primary_selection_metric": "VAL_TASK_SCORE",
+      "reused_configuration": "l3_0p3_l4_0p20",
+      "selection_rule_ready": true,
+      "status": "READY_NOT_RUN",
+      "weighted_validation_total_loss_used_for_ranking": false
+    },
+    "34_xlstm_v1_5_final_training_and_test": {
+      "depends_on": [
+        "32_xlstm_v1_5_finetune",
+        "33_xlstm_v1_5_loss_weight_sensitivity"
+      ],
+      "status": "SCAFFOLD_LOCKED",
+      "test_locked": true
+    },
+    "35_xlstm_v1_5_frequency_screening": {
+      "depends_on": [
+        "34_xlstm_v1_5_final_training_and_test"
+      ],
+      "status": "SCAFFOLD_BLOCKED_BY_FINAL_MODEL"
+    },
+    "36_xlstm_v1_5_tables_and_figures": {
+      "depends_on_incrementally": [
+        "32_xlstm_v1_5_finetune",
+        "33_xlstm_v1_5_loss_weight_sensitivity",
+        "34_xlstm_v1_5_final_training_and_test",
+        "35_xlstm_v1_5_frequency_screening"
+      ],
+      "status": "READY_FOR_INCREMENTAL_EVIDENCE"
+    }
+  },
+  "protocol_sha256": "0f68d6ebd5d16177e5238471639f861dfa91522130ac6a4a3ac48634b9af1e39",
+  "protocol_version": "MEPI-FROZEN-PROTOCOL v1.5",
+  "scientific_training_run": false,
+  "test_accessed": false,
+  "test_lock": {
+    "exactly_once": true,
+    "expected_test_rows": 90,
+    "required_gates": [
+      "FINAL_CONFIG_FROZEN == True",
+      "RUN_FINAL_TEST == True",
+      "all prerequisites complete"
+    ],
+    "status": "LOCKED",
+    "unlock_notebook": "34_xlstm_v1_5_final_training_and_test"
+  }
+}

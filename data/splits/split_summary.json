@@ -1,0 +1,48 @@
+{
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15
+  },
+  "magnet": {
+    "source": "/home/diy-hus/transfomfer/data/raw/source_datasets/Dataset/magnet_pretrain_186k.h5",
+    "group_definition": [
+      "material",
+      "temperature",
+      "exact_measured_frequency"
+    ],
+    "samples": {
+      "train": 130730,
+      "validation": 28014,
+      "test": 28013
+    },
+    "groups": {
+      "train": 4139,
+      "validation": 890,
+      "test": 888
+    },
+    "group_overlap": 0
+  },
+  "finetune": {
+    "source": "/home/diy-hus/transfomfer/data/raw/source_datasets/Dataset/finetune_dataset.csv",
+    "group_definition": [
+      "output_power_w",
+      "phase_shift_deg",
+      "dBdt_max",
+      "B_thd_percent",
+      "form_factor"
+    ],
+    "samples": {
+      "train": 6996,
+      "validation": 1484,
+      "test": 1520
+    },
+    "groups": {
+      "train": 132,
+      "validation": 28,
+      "test": 29
+    },
+    "group_overlap": 0
+  }
+}

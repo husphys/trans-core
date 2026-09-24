@@ -1,0 +1,252 @@
+{
+  "arrhenius_reference_scaler": "IDENTICAL_TO_target_scalers.LSP_raw",
+  "feature_scalers": {
+    "B_peak_t": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        0.3230161769891696
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        0.16495490960483694
+      ],
+      "standard_deviation": "population"
+    },
+    "B_rms": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        0.22738969546682267
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        0.11622288362798068
+      ],
+      "standard_deviation": "population"
+    },
+    "B_thd_percent": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        0.8688493793684346
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        0.22406556292359375
+      ],
+      "standard_deviation": "population"
+    },
+    "dBdt_max": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        6472.655398680579
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        2636.8490168246794
+      ],
+      "standard_deviation": "population"
+    },
+    "form_factor": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        1.1096529506774502
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        0.00043250780517813586
+      ],
+      "standard_deviation": "population"
+    },
+    "frequency_hz": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        2881.8809315866088
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        1047.4128149077144
+      ],
+      "standard_deviation": "population"
+    },
+    "phase_shift_deg": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        -1.4623952306908847
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        1.1359141414318064
+      ],
+      "standard_deviation": "population"
+    },
+    "temperature_ambient_c": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        27.147016011644833
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        1.210565077204974
+      ],
+      "standard_deviation": "population"
+    },
+    "vin_rms_v": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        4.242032523547123
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        0.9634829741381679
+      ],
+      "standard_deviation": "population"
+    }
+  },
+  "fit_order": "after frozen group split",
+  "fitted_split": "train",
+  "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+  "mu_LSP_train": 0.6030550333971313,
+  "numpy_ddof": 0,
+  "processing_version": "mepi-v1.2-lsp-split-normalization-v1",
+  "protocol_sha256": "c0fd2fe8aafc0c55dc0b6c525e341d0458782391f6476831da2e3cc5cf401988",
+  "protocol_version": "MEPI-FROZEN-PROTOCOL v1.2",
+  "separate_arrhenius_residual_scaler": false,
+  "sigma_LSP_train": 0.08375144701048931,
+  "split_hash": "01d097ff8bd1d3d8e09d1ef6affd508e72bfc11b3e81ac74034862103870a166",
+  "standard_deviation": "population standard deviation",
+  "status": "FROZEN_TRAIN_ONLY",
+  "target_scalers": {
+    "LSP_raw": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        0.6030550333971313
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        0.08375144701048931
+      ],
+      "standard_deviation": "population"
+    },
+    "P_loss": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        0.15536298551332164
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        0.09546595354711451
+      ],
+      "standard_deviation": "population"
+    },
+    "efficiency_percent": {
+      "fitted_split": "train",
+      "implementation": "src.mepi_v1.scaling.TrainOnlyStandardizer",
+      "mean": [
+        68.97967497426824
+      ],
+      "numpy_ddof": 0,
+      "sample_count": 687,
+      "scale": [
+        9.393503415801227
+      ],
+      "standard_deviation": "population"
+    }
+  },
+  "test_refit": false,
+  "training_group_ids": [
+    "F1000_V2p8_RL49p6025_SINE",
+    "F1000_V3p3_RL49p6025_SINE",
+    "F1000_V3p9_RL49p6025_SINE",
+    "F1000_V4p5_RL49p6025_SINE",
+    "F1000_V5p0_RL49p6025_SINE",
+    "F1250_V2p8_RL49p6025_SINE",
+    "F1250_V3p3_RL49p6025_SINE",
+    "F1250_V4p5_RL49p6025_SINE",
+    "F1250_V5p0_RL49p6025_SINE",
+    "F1500_V4p5_RL49p6025_SINE",
+    "F1500_V5p0_RL49p6025_SINE",
+    "F1500_V5p6_RL49p6025_SINE",
+    "F1750_V2p8_RL49p6025_SINE",
+    "F1750_V3p9_RL49p6025_SINE",
+    "F1750_V4p5_RL49p6025_SINE",
+    "F1750_V5p6_RL49p6025_SINE",
+    "F2000_V2p8_RL49p6025_SINE",
+    "F2000_V3p3_RL49p6025_SINE",
+    "F2000_V3p9_RL49p6025_SINE",
+    "F2000_V4p5_RL49p6025_SINE",
+    "F2000_V5p0_RL49p6025_SINE",
+    "F2000_V5p6_RL49p6025_SINE",
+    "F2250_V2p8_RL49p6025_SINE",
+    "F2250_V3p3_RL49p6025_SINE",
+    "F2250_V3p9_RL49p6025_SINE",
+    "F2250_V4p5_RL49p6025_SINE",
+    "F2250_V5p0_RL49p6025_SINE",
+    "F2500_V3p3_RL49p6025_SINE",
+    "F2500_V3p9_RL49p6025_SINE",
+    "F2500_V4p5_RL49p6025_SINE",
+    "F2500_V5p0_RL49p6025_SINE",
+    "F2750_V2p8_RL49p6025_SINE",
+    "F2750_V3p3_RL49p6025_SINE",
+    "F2750_V3p9_RL49p6025_SINE",
+    "F2750_V4p5_RL49p6025_SINE",
+    "F2750_V5p0_RL49p6025_SINE",
+    "F3000_V2p8_RL49p6025_SINE",
+    "F3000_V3p3_RL49p6025_SINE",
+    "F3000_V3p9_RL49p6025_SINE",
+    "F3000_V4p5_RL49p6025_SINE",
+    "F3000_V5p0_RL49p6025_SINE",
+    "F3250_V2p8_RL49p6025_SINE",
+    "F3250_V3p3_RL49p6025_SINE",
+    "F3250_V3p9_RL49p6025_SINE",
+    "F3250_V4p5_RL49p6025_SINE",
+    "F3250_V5p0_RL49p6025_SINE",
+    "F3250_V5p6_RL49p6025_SINE",
+    "F3500_V2p8_RL49p6025_SINE",
+    "F3500_V3p3_RL49p6025_SINE",
+    "F3500_V3p9_RL49p6025_SINE",
+    "F3500_V4p5_RL49p6025_SINE",
+    "F3750_V3p3_RL49p6025_SINE",
+    "F3750_V3p9_RL49p6025_SINE",
+    "F3750_V4p5_RL49p6025_SINE",
+    "F3750_V5p0_RL49p6025_SINE",
+    "F3750_V5p6_RL49p6025_SINE",
+    "F4000_V2p8_RL49p6025_SINE",
+    "F4000_V3p3_RL49p6025_SINE",
+    "F4000_V3p9_RL49p6025_SINE",
+    "F4000_V5p0_RL49p6025_SINE",
+    "F4250_V2p8_RL49p6025_SINE",
+    "F4250_V3p3_RL49p6025_SINE",
+    "F4250_V4p5_RL49p6025_SINE",
+    "F4250_V5p0_RL49p6025_SINE",
+    "F4250_V5p6_RL49p6025_SINE",
+    "F4500_V2p8_RL49p6025_SINE",
+    "F4500_V3p3_RL49p6025_SINE",
+    "F4500_V3p9_RL49p6025_SINE",
+    "F4500_V4p5_RL49p6025_SINE",
+    "F4500_V5p0_RL49p6025_SINE",
+    "F4500_V5p6_RL49p6025_SINE"
+  ],
+  "training_row_count": 687,
+  "validation_refit": false
+}

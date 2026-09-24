@@ -1,0 +1,51 @@
+{
+  "feature_differences": {
+    "B_peak_t": {
+      "changed_count_at_1e-9": 1050,
+      "mean_absolute_change": 0.022138143000185892,
+      "new_mean": 0.3579688091550279,
+      "old_mean": 0.335830666154842
+    },
+    "B_rms": {
+      "changed_count_at_1e-9": 1050,
+      "mean_absolute_change": 0.015520769634418478,
+      "new_mean": 0.2520381320472304,
+      "old_mean": 0.23651736241281193
+    },
+    "B_thd_percent": {
+      "changed_count_at_1e-9": 1050,
+      "mean_absolute_change": 0.17858212080375052,
+      "new_mean": 0.8735643479876045,
+      "old_mean": 0.7768933608486599
+    },
+    "dBdt_max": {
+      "changed_count_at_1e-9": 1050,
+      "mean_absolute_change": 1934.9101728781184,
+      "new_mean": 6639.808204951302,
+      "old_mean": 5769.228014971477
+    },
+    "form_factor": {
+      "changed_count_at_1e-9": 1050,
+      "mean_absolute_change": 0.000521164572551828,
+      "new_mean": 1.1096157470583445,
+      "old_mean": 1.1101125191297112
+    }
+  },
+  "legacy_source": "Scope #2 CH2 Vout",
+  "samples_reprocessed": 1050,
+  "sanity": {
+    "B_peak_above_1_t_count": 15,
+    "B_peak_decreases_with_frequency_group_fraction": 1.0,
+    "B_peak_increases_with_measured_vin_pair_fraction": 1.0,
+    "B_peak_range_t": [
+      0.12117766376035632,
+      1.2152955556012444
+    ],
+    "diagnostic_plot": "/home/diy-hus/transfomfer/reports/B_reprocessing_diagnostics.png",
+    "groups_with_repeat_B_peak_cv_gt_0_10": 0,
+    "max_periodic_step_over_peak": 0.03405751660466194,
+    "max_repeat_B_peak_cv": 0.008530765281989884,
+    "samples_with_periodic_step_over_peak_gt_0_10": 0
+  },
+  "source": "raw Scope #2 CH1 primary Vin"
+}

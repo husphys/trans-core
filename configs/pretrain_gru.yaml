@@ -1,0 +1,10 @@
+project_root: ..
+common_config: experiments/pretrain_v1/common_config.yaml
+allow_training: false
+seed: 42
+backbone: GRU
+dataset:
+  path: data/raw/source_datasets/Dataset/magnet_pretrain_186k.h5
+  split_dir: data/splits/mepi_v1
+model: {latent_dim: 256, backbone_layers: 4}
+selection_metric: validation_normalized_mae

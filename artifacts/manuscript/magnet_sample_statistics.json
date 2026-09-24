@@ -1,0 +1,42 @@
+{
+  "dataset_sha256": "0aca43184e9bd6cc90eec736a89fe1ea32f45b126527cb97918cd92684ac2c19",
+  "ranges": {
+    "B_waveform": {
+      "max": 0.3178839087486267,
+      "min": -0.31703683733940125,
+      "missing_values": 0,
+      "nonfinite_values": 0
+    },
+    "core_loss": {
+      "max": 6793920.0,
+      "min": 406.11822509765625,
+      "missing_values": 0,
+      "nonfinite_values": 0
+    },
+    "frequency_hz": {
+      "max": 794340.0,
+      "min": 49950.0,
+      "missing_values": 0,
+      "nonfinite_values": 0
+    },
+    "temperature_c": {
+      "max": 90.0,
+      "min": 25.0,
+      "missing_values": 0,
+      "nonfinite_values": 0
+    }
+  },
+  "samples_per_material": {
+    "3C90": 40713,
+    "3C94": 40068,
+    "3E6": 6996,
+    "3F4": 6564,
+    "77": 11444,
+    "78": 11380,
+    "N27": 11396,
+    "N30": 8978,
+    "N49": 8602,
+    "N87": 40616
+  },
+  "total_samples": 186757
+}

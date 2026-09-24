@@ -1,0 +1,66 @@
+{
+  "Efficiency_MAE": 0.985199602912454,
+  "Efficiency_R2": 0.9799553706906988,
+  "Efficiency_RMSE": 1.2498540193753929,
+  "LSP_raw_MAE": 0.02222882544293123,
+  "LSP_raw_MAPE_PERCENT": 4.037897109985352,
+  "LSP_raw_R2": 0.94536059386357,
+  "LSP_raw_RMSE": 0.026921163557247163,
+  "P_loss_MAE": 0.011397229573305915,
+  "P_loss_R2": 0.9770563923109485,
+  "P_loss_RMSE": 0.016609430335323635,
+  "VAL_TASK_SCORE": 0.2023820665829322,
+  "best_epoch": 91,
+  "configuration_id": "l3_1_l4_0p05",
+  "eligible_for_selection": true,
+  "epochs_completed": 100,
+  "initialization_checkpoint_sha256": "fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c",
+  "lambda1": 1.0,
+  "lambda2": 1.0,
+  "lambda3": 1.0,
+  "lambda4": 0.05,
+  "numerical_failure": false,
+  "physical_validation_metrics": {
+    "LSP_raw": {
+      "mae": 0.02222882544293123,
+      "mape_percent": 4.037897109985352,
+      "r2": 0.94536059386357,
+      "rmse": 0.026921163557247163
+    },
+    "P_loss": {
+      "mae": 0.011397229573305915,
+      "r2": 0.9770563923109485,
+      "rmse": 0.016609430335323635
+    },
+    "efficiency_percent": {
+      "mae": 0.985199602912454,
+      "r2": 0.9799553706906988,
+      "rmse": 1.2498540193753929
+    }
+  },
+  "primary_selection_metric": "VAL_TASK_SCORE",
+  "sample_count": 85,
+  "scheduler": null,
+  "seed": 42,
+  "selection_rule_ready": true,
+  "stop_epoch": 99,
+  "stopped_early": false,
+  "test_accessed": false,
+  "unweighted_validation_losses": {
+    "L_LSP": 0.1519513356335023,
+    "L_UQ": 0.3750669205889982,
+    "L_electrical": 0.0504307309494299,
+    "L_physics": 0.02857018108753597
+  },
+  "validation_L_LSP": 0.1519513356335023,
+  "validation_L_UQ": 0.3750669205889982,
+  "validation_L_electrical": 0.0504307309494299,
+  "validation_L_physics": 0.02857018108753597,
+  "weighted_contributions": {
+    "L_LSP": 0.1519513356335023,
+    "L_UQ": 0.018753346029449912,
+    "L_electrical": 0.0504307309494299,
+    "L_physics": 0.02857018108753597
+  },
+  "weighted_validation_total_loss": 0.24970558706451865
+}

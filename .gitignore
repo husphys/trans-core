@@ -1,0 +1,51 @@
+# Python and test/build caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments and credentials
+.env
+.env.*
+*.key
+*.pem
+credentials*
+secrets*
+token*
+.venv/
+.conda/
+
+# Local development tools
+.codex/
+.claude/
+.cursor/
+.windsurf/
+.gemini/
+.vscode/
+.idea/
+.tools/
+
+# Temporary and scratch content
+tmp/
+temp/
+scratch/
+logs/
+*~
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Large source archives are documented in DATA.md and remain external
+data/raw/
+legacy_artifacts/
+references/
+
+# Transient predictions; frozen evidence under reports/ remains tracked
+results/predictions/

@@ -1,0 +1,89 @@
+{
+  "B_waveform_shape": [
+    186757,
+    1024
+  ],
+  "dataset": "/home/diy-hus/transfomfer/data/raw/source_datasets/Dataset/magnet_pretrain_186k.h5",
+  "dataset_sha256": "0aca43184e9bd6cc90eec736a89fe1ea32f45b126527cb97918cd92684ac2c19",
+  "duplicate_sample_ids": 0,
+  "exact_duplicate_waveforms": 0,
+  "expected_waveform_length": 1024,
+  "feature_contract": {
+    "material_usage": "metadata and temporary-head routing only",
+    "tabular": [
+      "frequency_hz",
+      "temperature_c"
+    ],
+    "target": "core_loss",
+    "waveform": "B_waveform[1024]"
+  },
+  "invalid_waveform_length_samples": 0,
+  "missing_values": {
+    "B": 0,
+    "P": 0,
+    "T": 0,
+    "f": 0,
+    "material": 0
+  },
+  "nonfinite_values": {
+    "B": 0,
+    "P": 0,
+    "T": 0,
+    "f": 0
+  },
+  "ranges": {
+    "B_waveform": {
+      "max": 0.3178839087486267,
+      "min": -0.31703683733940125,
+      "missing_values": 0,
+      "nonfinite_values": 0
+    },
+    "core_loss": {
+      "max": 6793920.0,
+      "min": 406.11822509765625,
+      "missing_values": 0,
+      "nonfinite_values": 0
+    },
+    "frequency_hz": {
+      "max": 794340.0,
+      "min": 49950.0,
+      "missing_values": 0,
+      "nonfinite_values": 0
+    },
+    "temperature_c": {
+      "max": 90.0,
+      "min": 25.0,
+      "missing_values": 0,
+      "nonfinite_values": 0
+    }
+  },
+  "samples_per_material": {
+    "3C90": 40713,
+    "3C94": 40068,
+    "3E6": 6996,
+    "3F4": 6564,
+    "77": 11444,
+    "78": 11380,
+    "N27": 11396,
+    "N30": 8978,
+    "N49": 8602,
+    "N87": 40616
+  },
+  "split": {
+    "counts": {
+      "test": 18676,
+      "train": 149405,
+      "validation": 18676
+    },
+    "manifest_directory": "/home/diy-hus/transfomfer/data/splits/mepi_v1",
+    "method": "seeded material-stratified sample split",
+    "ratios": {
+      "test": 0.1,
+      "train": 0.8,
+      "validation": 0.1
+    },
+    "seed": 42
+  },
+  "status": "PASS",
+  "total_samples": 186757
+}

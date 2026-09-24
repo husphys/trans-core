@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "aggregation_mode": "PERSISTED_ARTIFACTS_ONLY_NO_RECOMPUTATION",
+  "dataset_split": {
+    "status": "AVAILABLE",
+    "dataset_protocol": "MEPI-FROZEN-PROTOCOL v1.2",
+    "primary_measured_rows": 900,
+    "qc_valid_rows": 862,
+    "rows": {"train": 687, "validation": 85, "test": 90},
+    "groups": {"train": 72, "validation": 9, "test": 9},
+    "split_seed": 42,
+    "split_manifest": {
+      "path": "data/MEPI/v1_2/split_manifest_v1_2.csv",
+      "sha256": "01d097ff8bd1d3d8e09d1ef6affd508e72bfc11b3e81ac74034862103870a166"
+    },
+    "source_artifacts": [
+      {"path": "configs/finetune_v1_5.yaml", "sha256": "6c10585593b786599f8f545f9550fdf96974ee13537663bc5f768943f5fdf8fb"},
+      {"path": "reports/MEPI_V1_3_XLSTM_TRAIN_READINESS.md", "sha256": "62a9e962d6d9820e6159a019ae068cfd973af6005335397f2930bc4b748a7655"}
+    ]
+  },
+  "selected_xlstm_architecture": {
+    "status": "AVAILABLE",
+    "family": "xLSTM",
+    "depth": 8,
+    "latent_dim": 256,
+    "pooling": "mean over sequence dimension after xLSTM backbone",
+    "fusion": "MultiheadAttention(embed_dim=256, num_heads=8, dropout=0.0, batch_first=True) plus residual LayerNorm(256)",
+    "pretraining_trainable_parameters": 5969930,
+    "transferred_components": ["waveform_encoder", "backbone"],
+    "strict_module_loads": true,
+    "pretrained_checkpoint": {
+      "path": "experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt",
+      "sha256": "fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c"
+    },
+    "source_artifact": {
+      "path": "reports/backbone_transfer_v1_3.json",
+      "sha256": "26066f81b9ede204bf4e52e9adbc23a4a93cbbb01bdabda666569820fb5844dd"
+    }
+  },
+  "downstream_convergence": {
+    "status": "AVAILABLE",
+    "v1_4_ceiling_evidence": {
+      "epochs_completed": 50,
+      "best_epoch_zero_based": 49,
+      "best_validation_total_loss": 0.4636393350713393,
+      "convergence_status": "A_STILL_CLEARLY_IMPROVING_AT_EPOCH_49",
+      "absolute_improvement_last_5_epochs": 0.0403531095560859,
+      "absolute_improvement_last_10_epochs": 0.09840639619266284
+    },
+    "selected_v1_5_run": {
+      "configuration_id": "l3_1_l4_0p05",
+      "epochs_completed": 100,
+      "best_epoch_zero_based": 91,
+      "stopped_early": false,
+      "sample_count_validation": 85,
+      "validation_L_electrical": 0.0504307309494299,
+      "validation_L_LSP": 0.1519513356335023,
+      "VAL_TASK_SCORE": 0.2023820665829322,
+      "weighted_validation_total_loss": 0.24970558706451865,
+      "test_accessed": false
+    },
+    "source_artifacts": [
+      {"path": "reports/MEPI_V1_4_BASELINE_VALIDATION_METRICS.json", "sha256": "0c78748cd507b59770da1e814bc3959b2b919cdafaabfaeba08793d81ed135b3"},
+      {"path": "experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/l3_1_l4_0p05/completed.json", "sha256": "88a69f07d5509988face4ebde48a85044b5758afb07bc9fc733e269d8be4ef8a"}
+    ]
+  },
+  "loss_weight_sensitivity": {
+    "status": "GRID_COMPLETE_VALIDATION_ONLY",
+    "configuration_count": 12,
+    "primary_selection_metric": "VAL_TASK_SCORE",
+    "selection_formula": "validation_L_electrical + validation_L_LSP",
+    "direction": "minimize",
+    "weighted_validation_total_loss_used_for_cross_configuration_ranking": false,
+    "test_accessed": false,
+    "source_artifact": {
+      "path": "experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/comparison.json",
+      "sha256": "908c872450e0811ec2e9cc8ca2e193925f9c302100e413e51d66f80d3419245f"
+    }
+  },
+  "selected_lambda_configuration": {
+    "status": "FROZEN",
+    "configuration_id": "l3_1_l4_0p05",
+    "lambda1": 1.0,
+    "lambda2": 1.0,
+    "lambda3": 1.0,
+    "lambda4": 0.05,
+    "VAL_TASK_SCORE": 0.2023820665829322,
+    "selection_reason": "UNIQUE_MINIMUM_VAL_TASK_SCORE",
+    "selected_checkpoint": {
+      "path": "experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/l3_1_l4_0p05/best_checkpoint.pt",
+      "sha256": "0315922cab43aad2cde35016f1a60a62f3df4bc94844310e5ef84aee88389b33"
+    },
+    "source_artifacts": [
+      {"path": "configs/final_model_v1_5.yaml", "sha256": "4b18d275be0a56f09371f2fd91d3fe03bba72a7cee6ca732014fbbf043dcdf96"},
+      {"path": "experiments/finetune_v1_5_xlstm_depth8/final_model_manifest.json", "sha256": "607bad9d532777f11a6659459cfa59e6a78e054bbd6ed95abe0e4f3dfffe67c1"}
+    ]
+  },
+  "final_test_metrics": {
+    "status": "AVAILABLE",
+    "evaluation_status": "FINAL_TEST_COMPLETE",
+    "test_accessed": true,
+    "test_evaluation_count": 1,
+    "test_rows": 90,
+    "test_groups": 9,
+    "numerical_failure": false,
+    "metrics": {
+      "efficiency": {"MAE": 1.1456656561957466, "RMSE": 1.4833748448127801, "R2": 0.9817636936882129},
+      "P_loss": {"MAE": 0.013692542165517806, "RMSE": 0.01645941692939988, "R2": 0.9706166407086579},
+      "LSP_raw": {"MAE": 0.027950685885217454, "RMSE": 0.03636576957789921, "R2": 0.9162509236930347, "MAPE_PERCENT": 4.788047790527344}
+    },
+    "source_artifacts": [
+      {"path": "reports/MEPI_V1_5_FINAL_TEST_RESULTS.json", "sha256": "aa6178404deea9d48fdee436ba9ef6d033a569df76f84f9ad9e33b8e2ec7c1df"},
+      {"path": "reports/MEPI_V1_5_FINAL_TEST_RESULTS.md", "sha256": "8254a367d8d7675f5eb8817603ed9364342f34140853f68c86c08c80cdd7ad90"}
+    ]
+  },
+  "computational_profile": {
+    "status": "AVAILABLE",
+    "evidence_scope": "BENCHMARK_ONLY_NOT_OFFICIAL_SCIENTIFIC_EVIDENCE",
+    "gpu": "NVIDIA GeForce RTX 3050",
+    "downstream_model_parameter_count": 5840389,
+    "pretraining_xlstm_trainable_parameters": 5969930,
+    "largest_common_passing_batch_size": 512,
+    "xlstm_hdf5_benchmark": [
+      {"batch_size": 64, "samples_per_second": 596.1309277292313, "peak_allocated_gib": 0.6775360107421875, "status": "PASS"},
+      {"batch_size": 128, "samples_per_second": 873.502899626077, "peak_allocated_gib": 1.2812995910644531, "status": "PASS"},
+      {"batch_size": 256, "samples_per_second": 1072.9597094730682, "peak_allocated_gib": 2.4889488220214844, "status": "PASS"},
+      {"batch_size": 512, "samples_per_second": 1023.6995032508113, "peak_allocated_gib": 4.905091762542725, "status": "PASS"}
+    ],
+    "source_artifacts": [
+      {"path": "reports/benchmark_pretraining_comprehensive.json", "sha256": "8ec9a636df0bb5e86d24617e74d4988b2cbb467764b0dc34987fdf04c8629904"},
+      {"path": "reports/MEPI_V1_5_FINAL_TEST_RESULTS.json", "sha256": "aa6178404deea9d48fdee436ba9ef6d033a569df76f84f9ad9e33b8e2ec7c1df"}
+    ]
+  },
+  "frequency_screening_summary": {
+    "status": "AVAILABLE",
+    "run_complete": true,
+    "source_rows": 150,
+    "usable_rows": 146,
+    "excluded_hard_fail_rows": 4,
+    "candidate_frequencies": 15,
+    "claim_boundary": "OFFLINE_PROOF_OF_CONCEPT_NO_OPTIMUM_DECLARED",
+    "test_data_used_for_screening": false,
+    "test_tuning": false,
+    "frequency_summary": [
+      {"frequency_hz": 1000.0, "n_samples": 6, "mean_predicted_efficiency": 65.51508967081706, "mean_predicted_P_loss": 0.1730078011751175, "mean_predicted_LSP": 0.6288372874259949, "mean_predicted_LSP_std": 0.029453453814962324},
+      {"frequency_hz": 1250.0, "n_samples": 10, "mean_predicted_efficiency": 61.682511520385745, "mean_predicted_P_loss": 0.20370426923036575, "mean_predicted_LSP": 0.6159101665019989, "mean_predicted_LSP_std": 0.030907100168335998},
+      {"frequency_hz": 1500.0, "n_samples": 10, "mean_predicted_efficiency": 62.17787055969238, "mean_predicted_P_loss": 0.19745796099305152, "mean_predicted_LSP": 0.6292718648910522, "mean_predicted_LSP_std": 0.029944665953685584},
+      {"frequency_hz": 1750.0, "n_samples": 10, "mean_predicted_efficiency": 64.65536155700684, "mean_predicted_P_loss": 0.16844293028116225, "mean_predicted_LSP": 0.6774202525615692, "mean_predicted_LSP_std": 0.030498467400059893},
+      {"frequency_hz": 2000.0, "n_samples": 10, "mean_predicted_efficiency": 63.819210815429685, "mean_predicted_P_loss": 0.17080627307295798, "mean_predicted_LSP": 0.6073591768741607, "mean_predicted_LSP_std": 0.028465600778636024},
+      {"frequency_hz": 2250.0, "n_samples": 10, "mean_predicted_efficiency": 66.58130493164063, "mean_predicted_P_loss": 0.14749449715018273, "mean_predicted_LSP": 0.6734647572040557, "mean_predicted_LSP_std": 0.029044074312544188},
+      {"frequency_hz": 2500.0, "n_samples": 10, "mean_predicted_efficiency": 67.96418647766113, "mean_predicted_P_loss": 0.143923844397068, "mean_predicted_LSP": 0.6425775766372681, "mean_predicted_LSP_std": 0.03047657276733661},
+      {"frequency_hz": 2750.0, "n_samples": 10, "mean_predicted_efficiency": 66.9046646118164, "mean_predicted_P_loss": 0.15181330367922782, "mean_predicted_LSP": 0.6046069979667663, "mean_predicted_LSP_std": 0.029257041904164355},
+      {"frequency_hz": 3000.0, "n_samples": 10, "mean_predicted_efficiency": 71.63535766601562, "mean_predicted_P_loss": 0.12013048306107521, "mean_predicted_LSP": 0.6853793025016784, "mean_predicted_LSP_std": 0.02834078030709012},
+      {"frequency_hz": 3250.0, "n_samples": 10, "mean_predicted_efficiency": 69.17736129760742, "mean_predicted_P_loss": 0.1303592123091221, "mean_predicted_LSP": 0.6117972373962403, "mean_predicted_LSP_std": 0.029686544266362875},
+      {"frequency_hz": 3500.0, "n_samples": 10, "mean_predicted_efficiency": 70.73247146606445, "mean_predicted_P_loss": 0.1273675911128521, "mean_predicted_LSP": 0.6327846765518188, "mean_predicted_LSP_std": 0.028320288604069238},
+      {"frequency_hz": 3750.0, "n_samples": 10, "mean_predicted_efficiency": 75.1265739440918, "mean_predicted_P_loss": 0.10749482214450837, "mean_predicted_LSP": 0.675521731376648, "mean_predicted_LSP_std": 0.03144868547391435},
+      {"frequency_hz": 4000.0, "n_samples": 10, "mean_predicted_efficiency": 69.90205459594726, "mean_predicted_P_loss": 0.12706748247146607, "mean_predicted_LSP": 0.6012332141399384, "mean_predicted_LSP_std": 0.030929472738715887},
+      {"frequency_hz": 4250.0, "n_samples": 10, "mean_predicted_efficiency": 74.91922073364258, "mean_predicted_P_loss": 0.10717667862772942, "mean_predicted_LSP": 0.6621390879154205, "mean_predicted_LSP_std": 0.030808515117277467},
+      {"frequency_hz": 4500.0, "n_samples": 10, "mean_predicted_efficiency": 74.26459579467773, "mean_predicted_P_loss": 0.10806235074996948, "mean_predicted_LSP": 0.6375685453414917, "mean_predicted_LSP_std": 0.02944638634973239}
+    ],
+    "source_artifacts": [
+      {"path": "reports/MEPI_V1_5_FREQUENCY_SCREENING.json", "sha256": "5b287be4ad4d457898afcaed5deda3ebddef5022c9fa74964c35f7aa0dce6f5c"},
+      {"path": "reports/MEPI_V1_5_FREQUENCY_SCREENING.md", "sha256": "285b0a146f833f8e4334267a2b1cf1ac1553b8795829c5300f805e21f6a470e3"},
+      {"path": "reports/MEPI_V1_5_FREQUENCY_SCREENING_PREDICTIONS.csv", "sha256": "a10c52185ade8cf972b9518d00dc9bf24a5ae64659b892108ae7803250526210"},
+      {"path": "notebooks/35_xlstm_v1_5_frequency_screening.ipynb", "sha256": "f18b11a4740fe6ac18206747d98eae5e173745496b78b8482229fb89daec2758"}
+    ]
+  },
+  "aggregation_safety": {
+    "scientific_training_run": false,
+    "final_test_rerun": false,
+    "test_data_accessed_during_aggregation": false,
+    "frequency_screening_rerun": false
+  },
+  "manuscript_evidence_complete": true,
+  "additional_scientific_experiment_required_before_manuscript_revision": false
+}

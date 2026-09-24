@@ -1,0 +1,60 @@
+protocol_version: MEPI-FROZEN-PROTOCOL v1.5
+protocol_sha256: 0f68d6ebd5d16177e5238471639f861dfa91522130ac6a4a3ac48634b9af1e39
+base_config: configs/finetune_v1_5.yaml
+allow_grid_training: true
+seed: 42
+initialization:
+  mode: fresh_from_selected_representation_for_each_configuration
+  checkpoint: experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt
+  checkpoint_sha256: fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c
+  reuse_other_finetuned_configuration: false
+  baseline_result_reuse: allowed_only_with_passing_identical_contract_audit
+loss_weights:
+  lambda1:
+  - 1.0
+  lambda2:
+  - 1.0
+  lambda3:
+  - 0.1
+  - 0.3
+  - 0.5
+  - 1.0
+  lambda4:
+  - 0.05
+  - 0.1
+  - 0.2
+training:
+  optimizer: AdamW
+  learning_rate: 5.0e-06
+  weight_decay: 0.0001
+  scheduler: null
+  warmup: null
+  batch_size: 64
+  max_epochs: 100
+  early_stopping_patience: 10
+  min_delta: 0.0
+  strict_improvement: true
+  gradient_clip_norm: 1.0
+  amp: cuda_conditional
+output_root: experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity
+selection_rule_ready: true
+automatic_winner_declaration: true
+model_development_splits:
+- train
+- validation
+test_access: false
+selection_rule:
+  artifact: MEPI-V1.5-LOSS-WEIGHT-SELECTION-RULE.md
+  sha256: 8c4eda9035e7e5e4f75a4b0ccde643c8946fd3b990575ec0323977cb8497a5be
+  primary_metric: VAL_TASK_SCORE
+  formula: validation_L_electrical + validation_L_LSP
+  direction: minimize
+  weighted_validation_total_loss_cross_configuration_ranking: false
+  exclude_numerical_failure: true
+  exact_tie_policy: retain_tied_co_best_no_unfrozen_tiebreaker
+baseline_reuse:
+  lambda3: 0.3
+  lambda4: 0.2
+  valid: true
+  audit: reports/MEPI_V1_5_BASELINE_GRID_REUSE_AUDIT.json
+  completed_result: experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/l3_0p3_l4_0p20/completed.json

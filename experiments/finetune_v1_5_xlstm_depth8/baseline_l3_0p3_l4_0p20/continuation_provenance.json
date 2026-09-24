@@ -1,0 +1,18 @@
+{
+  "amp_scaler_state_preserved": true,
+  "best_epoch": 49,
+  "best_validation_total_loss": 0.4636393350713393,
+  "history_rows": 50,
+  "imported_last_checkpoint_sha256": "22aca18c37b4526c46e3044eeeda4e36a6a0364891e767cace755961eef44138",
+  "optimizer_state_preserved": true,
+  "parent_checkpoint": "last_checkpoint.pt",
+  "parent_checkpoint_sha256": "22aca18c37b4526c46e3044eeeda4e36a6a0364891e767cace755961eef44138",
+  "parent_protocol": "MEPI-FROZEN-PROTOCOL v1.4",
+  "parent_protocol_sha256": "685f79b6b700ae131ff2a19af524417ead46ee9c073f1c2ddf9d96191f59b487",
+  "parent_run": "experiments/finetune_v1_4_xlstm_depth8/baseline_l3_0p3_l4_0p20",
+  "resume_next_epoch": 50,
+  "rng_state_preserved": true,
+  "scientific_training_run": false,
+  "status": "EXACT_STATE_IMPORTED_NOT_EXECUTED",
+  "test_accessed": false
+}

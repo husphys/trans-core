@@ -1,0 +1,19 @@
+{
+  "api_return_order": [
+    "TempRoom",
+    "TempCore"
+  ],
+  "baud_rate": 9600,
+  "calibration_status": "NO_OFFSET_OR_SLOPE_INFERRED_FROM_TRANSFORMER_DATA",
+  "com_port": "COM5",
+  "double_swap_guard": "temperature_mapping_correction must equal SWAPPED_CORE_ROOM_CHANNELS_PHYSICALLY_VERIFIED before v1.2 target construction",
+  "mapping_correction": "SWAPPED_CORE_ROOM_CHANNELS_PHYSICALLY_VERIFIED",
+  "mapping_verified_date": "2026-09-23",
+  "physical_board_reply_order": [
+    "TempCore",
+    "TempRoom"
+  ],
+  "protocol_sha256": "c0fd2fe8aafc0c55dc0b6c525e341d0458782391f6476831da2e3cc5cf401988",
+  "protocol_version": "MEPI-FROZEN-PROTOCOL v1.2",
+  "query_ascii": "T"
+}
