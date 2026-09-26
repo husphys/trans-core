@@ -109,7 +109,10 @@ For Raspberry Pi deployment, the Tkinter frontend is available through
 `python -m apps.mepi_monitor.tk_main`. The self-contained
 [`deploy/MEPI_PI_DEPLOY`](deploy/MEPI_PI_DEPLOY/) directory can be copied without
 the research repository; follow its `README_PI.md`, run `./install_pi.sh`, then
-`./test_pi.sh`. The original PySide6 frontend remains available for desktop use.
+`./test_pi.sh`. This package requires a 64-bit `aarch64`/`arm64` OS; see the
+[ARMv7 deployment audit](docs/MEPI_ARMV7_DEPLOYMENT_AUDIT.md) before using a
+board that reports `armv7l`. The original PySide6 frontend remains available for
+desktop use.
 
 ## Frequency-screening scope
 

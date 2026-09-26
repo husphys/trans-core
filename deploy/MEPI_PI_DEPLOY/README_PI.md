@@ -2,9 +2,17 @@
 
 This directory is self-contained. It runs the frozen MEPI v1.5 depth-8 xLSTM on CPU and does not require the research repository.
 
+## Required architecture
+
+This package requires a **64-bit operating system** reporting `aarch64` or `arm64` from `uname -m`. It is not a validated ARM32 package. On `armv7l`, `install_pi.sh` and `test_pi.sh` fail closed before inference or package installation.
+
+The frozen model requires PyTorch Conv1d, real FFT, adaptive pooling, multi-head attention, LayerNorm, eight LSTM blocks, and strict checkpoint loading. Official PyTorch and Debian packages do not provide a suitable `armhf/armv7l` runtime, and no scientifically equivalent alternative runtime has been validated on ARM32. Do not install an unofficial wheel or substitute an approximate model.
+
+If `uname -m` reports `armv7l` but the board is a Raspberry Pi 3, 4, 5, 400, or Zero 2, back up required files and use Raspberry Pi Imager to install **Raspberry Pi OS (64-bit)**. Recheck that `uname -m` reports `aarch64` before continuing. Original Raspberry Pi, Raspberry Pi 2 with its original 32-bit CPU, and original Pi Zero hardware require a newer 64-bit-capable board for this application. See `docs/MEPI_ARMV7_DEPLOYMENT_AUDIT.md` in the research repository for the compatibility evidence.
+
 ## Install and run
 
-1. Copy the complete `MEPI_PI_DEPLOY` directory to a 64-bit Raspberry Pi.
+1. Verify `uname -m` reports `aarch64` or `arm64`, then copy the complete `MEPI_PI_DEPLOY` directory to the Raspberry Pi.
 2. Open a terminal and enter the directory: `cd MEPI_PI_DEPLOY`
 3. Enable the scripts: `chmod +x install_pi.sh test_pi.sh`
 4. Install runtime dependencies: `./install_pi.sh`

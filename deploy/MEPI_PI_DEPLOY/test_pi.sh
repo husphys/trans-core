@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
 set -u
 cd -- "$(dirname -- "$0")"
+arch="$(uname -m)"
+python_version="$(python3 --version 2>&1 || true)"
+if [ -r /etc/os-release ]; then
+  os_name="$(. /etc/os-release; printf '%s' "${PRETTY_NAME:-unknown}")"
+else
+  os_name="unknown"
+fi
+echo "Detected architecture: $arch"
+echo "Detected OS: $os_name"
+echo "Detected Python: ${python_version:-unavailable}"
+if [ "$arch" = "armv7l" ]; then
+  echo "FAIL  64-bit architecture"
+  echo "ARMV7L DEPLOYMENT NOT SUPPORTED: migrate supported hardware to Raspberry Pi OS (64-bit)."
+  exit 2
+fi
 fail=0
 check() { label="$1"; shift; if "$@" >/dev/null 2>&1; then echo "PASS  $label"; else echo "FAIL  $label"; fail=1; fi; }
 check "Python version" python3 -c 'import sys; assert sys.version_info >= (3,9)'

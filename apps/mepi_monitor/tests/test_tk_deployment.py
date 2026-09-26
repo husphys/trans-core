@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import os
+import subprocess
 import time
 from pathlib import Path
 
@@ -106,3 +108,34 @@ def test_checkpoint_hash_verification_fails_closed(tmp_path: Path) -> None:
     (tmp_path / "artifact.bin").write_bytes(b"changed")
     with pytest.raises(RuntimeError, match="CHECKPOINT INTEGRITY ERROR"):
         verify_deployment(tmp_path)
+
+
+def test_pi_installer_rejects_armv7l_before_install(tmp_path: Path) -> None:
+    installer = ROOT / "deploy/MEPI_PI_DEPLOY/install_pi.sh"
+    if not installer.is_file():
+        pytest.skip("deployment not built yet")
+    fake_bin = tmp_path / "bin"
+    fake_bin.mkdir()
+    (fake_bin / "uname").write_text("#!/bin/sh\necho armv7l\n", encoding="utf-8")
+    (fake_bin / "python3").write_text("#!/bin/sh\necho Python 3.11.2\n", encoding="utf-8")
+    for path in fake_bin.iterdir():
+        path.chmod(0o755)
+    environment = os.environ.copy()
+    environment["PATH"] = f"{fake_bin}:{environment['PATH']}"
+    result = subprocess.run(
+        ["bash", str(installer)],
+        cwd=installer.parent,
+        env=environment,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 2
+    assert "Detected architecture: armv7l" in result.stdout
+    assert "Detected Python: Python 3.11.2" in result.stdout
+    assert "ARMV7L DEPLOYMENT NOT SUPPORTED" in result.stdout
+    assert "apt-get" not in result.stdout
+    assert "pip install" not in result.stdout
+    assert "sudo" not in result.stdout
+    assert "aarch64" in result.stdout
+    assert result.stderr == ""

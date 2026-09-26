@@ -12,7 +12,7 @@ import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-DEPLOYMENT_VERSION = "1.0.0"
+DEPLOYMENT_VERSION = "1.0.1"
 
 RUNTIME_PATHS = (
     "apps/__init__.py", "apps/mepi_monitor/__init__.py", "apps/mepi_monitor/acquisition",
@@ -64,6 +64,30 @@ matplotlib>=3.8,<4
 INSTALL = r'''#!/usr/bin/env bash
 set -u
 echo "MEPI Pi installer: CPU inference only; no PySide6, PyVISA, CUDA, or training packages."
+arch="$(uname -m)"
+python_version="$(python3 --version 2>&1 || true)"
+if [ -r /etc/os-release ]; then
+  os_name="$(. /etc/os-release; printf '%s' "${PRETTY_NAME:-unknown}")"
+else
+  os_name="unknown"
+fi
+echo "Detected architecture: $arch"
+echo "Detected OS: $os_name"
+echo "Detected Python: ${python_version:-unavailable}"
+case "$arch" in
+  aarch64|arm64) ;;
+  armv7l)
+    echo "ERROR: ARMV7L DEPLOYMENT NOT SUPPORTED"
+    echo "The frozen MEPI v1.5 runtime requires PyTorch operations for which no validated armv7l runtime is packaged."
+    echo "No official PyTorch or ONNX Runtime Python wheel is available for this 32-bit target."
+    echo "If the Raspberry Pi CPU supports 64-bit operation, install Raspberry Pi OS (64-bit), verify 'uname -m' reports aarch64, and use this package unchanged."
+    exit 2
+    ;;
+  *)
+    echo "ERROR: unsupported deployment architecture: $arch (expected aarch64/arm64)."
+    exit 2
+    ;;
+esac
 sudo apt-get update
 sudo apt-get install -y python3 python3-pip python3-tk python3-numpy python3-matplotlib python3-yaml libopenblas-dev
 python3 - <<'PY' >/dev/null 2>&1 && have_torch=1 || have_torch=0
@@ -85,6 +109,21 @@ echo "Installation complete. Run ./test_pi.sh before launching the GUI."
 TEST = r'''#!/usr/bin/env bash
 set -u
 cd -- "$(dirname -- "$0")"
+arch="$(uname -m)"
+python_version="$(python3 --version 2>&1 || true)"
+if [ -r /etc/os-release ]; then
+  os_name="$(. /etc/os-release; printf '%s' "${PRETTY_NAME:-unknown}")"
+else
+  os_name="unknown"
+fi
+echo "Detected architecture: $arch"
+echo "Detected OS: $os_name"
+echo "Detected Python: ${python_version:-unavailable}"
+if [ "$arch" = "armv7l" ]; then
+  echo "FAIL  64-bit architecture"
+  echo "ARMV7L DEPLOYMENT NOT SUPPORTED: migrate supported hardware to Raspberry Pi OS (64-bit)."
+  exit 2
+fi
 fail=0
 check() { label="$1"; shift; if "$@" >/dev/null 2>&1; then echo "PASS  $label"; else echo "FAIL  $label"; fail=1; fi; }
 check "Python version" python3 -c 'import sys; assert sys.version_info >= (3,9)'
@@ -107,9 +146,17 @@ README = '''# MEPI Monitor — Raspberry Pi deployment
 
 This directory is self-contained. It runs the frozen MEPI v1.5 depth-8 xLSTM on CPU and does not require the research repository.
 
+## Required architecture
+
+This package requires a **64-bit operating system** reporting `aarch64` or `arm64` from `uname -m`. It is not a validated ARM32 package. On `armv7l`, `install_pi.sh` and `test_pi.sh` fail closed before inference or package installation.
+
+The frozen model requires PyTorch Conv1d, real FFT, adaptive pooling, multi-head attention, LayerNorm, eight LSTM blocks, and strict checkpoint loading. Official PyTorch and Debian packages do not provide a suitable `armhf/armv7l` runtime, and no scientifically equivalent alternative runtime has been validated on ARM32. Do not install an unofficial wheel or substitute an approximate model.
+
+If `uname -m` reports `armv7l` but the board is a Raspberry Pi 3, 4, 5, 400, or Zero 2, back up required files and use Raspberry Pi Imager to install **Raspberry Pi OS (64-bit)**. Recheck that `uname -m` reports `aarch64` before continuing. Original Raspberry Pi, Raspberry Pi 2 with its original 32-bit CPU, and original Pi Zero hardware require a newer 64-bit-capable board for this application. See `docs/MEPI_ARMV7_DEPLOYMENT_AUDIT.md` in the research repository for the compatibility evidence.
+
 ## Install and run
 
-1. Copy the complete `MEPI_PI_DEPLOY` directory to a 64-bit Raspberry Pi.
+1. Verify `uname -m` reports `aarch64` or `arm64`, then copy the complete `MEPI_PI_DEPLOY` directory to the Raspberry Pi.
 2. Open a terminal and enter the directory: `cd MEPI_PI_DEPLOY`
 3. Enable the scripts: `chmod +x install_pi.sh test_pi.sh`
 4. Install runtime dependencies: `./install_pi.sh`
