@@ -12,7 +12,7 @@ import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-DEPLOYMENT_VERSION = "1.2.0"
+DEPLOYMENT_VERSION = "1.2.1"
 
 RUNTIME_PATHS = (
     "apps/__init__.py", "apps/mepi_monitor/__init__.py", "apps/mepi_monitor/acquisition",

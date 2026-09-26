@@ -1,9 +1,9 @@
 {
   "architecture": "8-layer xLSTM",
-  "build_timestamp_utc": "2026-09-26T09:11:32.396276+00:00",
+  "build_timestamp_utc": "2026-09-26T10:26:00.307415+00:00",
   "checkpoint_filename": "experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/l3_1_l4_0p05/best_checkpoint.pt",
   "checkpoint_sha256": "0315922cab43aad2cde35016f1a60a62f3df4bc94844310e5ef84aee88389b33",
-  "deployment_version": "1.2.0",
+  "deployment_version": "1.2.1",
   "loss_weights": {
     "lambda1": 1.0,
     "lambda2": 1.0,
@@ -48,6 +48,6 @@
   },
   "scientific_model_version": "MEPI v1.5",
   "source_config_sha256": "6c10585593b786599f8f545f9550fdf96974ee13537663bc5f768943f5fdf8fb",
-  "source_git_commit": "6e15e566961eaeecac0d9f4b19491041a6a51c8a",
+  "source_git_commit": "0955d7228af0a1468618b69a93a877b9c341dd5a",
   "training_performed": false
 }

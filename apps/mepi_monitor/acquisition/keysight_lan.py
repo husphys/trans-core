@@ -15,6 +15,7 @@ import numpy as np
 
 SCPI_PORT = 5024
 WAVEFORM_POINTS = 5000
+TELNET_HANDSHAKE_TIMEOUT_S = 30.0
 
 _IAC = 255
 _DONT = 254
@@ -24,6 +25,7 @@ _WILL = 251
 _SB = 250
 _SE = 240
 _PROMPT = b">>"
+_ACCEPTED_SERVER_WILL_OPTIONS = frozenset({1, 3})
 
 
 @dataclass(frozen=True)
@@ -36,8 +38,18 @@ class ScopeCapture:
 
 
 class _SCPISocket:
-    def __init__(self, ip: str, port: int = SCPI_PORT, timeout_s: float = 6.0) -> None:
-        self.ip, self.port, self.timeout_s = ip, int(port), float(timeout_s)
+    def __init__(
+        self,
+        ip: str,
+        port: int = SCPI_PORT,
+        timeout_s: float = 6.0,
+        handshake_timeout_s: float = TELNET_HANDSHAKE_TIMEOUT_S,
+    ) -> None:
+        self.ip, self.port = ip, int(port)
+        self.timeout_s = float(timeout_s)
+        self.handshake_timeout_s = float(handshake_timeout_s)
+        if self.timeout_s <= 0.0 or self.handshake_timeout_s <= 0.0:
+            raise ValueError("Keysight timeouts must be positive")
         self.socket: socket.socket | None = None
         self.buffer = b""
         self._telnet_state = "data"
@@ -45,13 +57,33 @@ class _SCPISocket:
 
     def connect(self) -> str:
         self.close()
-        self.socket = socket.create_connection((self.ip, self.port), self.timeout_s)
-        self.socket.settimeout(self.timeout_s)
-        self.buffer = b""
-        self._telnet_state = "data"
-        self._telnet_command = None
-        self._read_until_prompt("welcome banner")
-        return self.query("*IDN?")
+        try:
+            self.socket = socket.create_connection(
+                (self.ip, self.port), self.handshake_timeout_s
+            )
+            self.socket.settimeout(self.handshake_timeout_s)
+            self.buffer = b""
+            self._telnet_state = "data"
+            self._telnet_command = None
+            # The physical EDUX1052A trace shows negotiation begins only after
+            # the Linux Telnet client sends an empty CRLF line.
+            self.socket.sendall(b"\r\n")
+            try:
+                self._read_until_prompt(
+                    "Telnet initialization",
+                    overall_timeout_s=self.handshake_timeout_s,
+                )
+            except TimeoutError as exc:
+                raise TimeoutError(
+                    "Keysight Telnet initialization timed out after "
+                    f"{self.handshake_timeout_s:g} seconds following CRLF wakeup"
+                ) from exc
+            # The banner is session UI only. *IDN? below is authoritative.
+            self.socket.settimeout(self.timeout_s)
+            return self.query("*IDN?")
+        except Exception:
+            self.close()
+            raise
 
     def close(self) -> None:
         if self.socket is not None:
@@ -63,10 +95,15 @@ class _SCPISocket:
         self._telnet_state = "data"
         self._telnet_command = None
 
-    def _send_telnet_refusal(self, command: int, option: int) -> None:
+    def _send_telnet_response(self, command: int, option: int) -> None:
         if self.socket is None:
             raise RuntimeError("Scope is not connected")
-        response = _WONT if command in {_DO, _DONT} else _DONT
+        if command == _WILL:
+            response = _DO if option in _ACCEPTED_SERVER_WILL_OPTIONS else _DONT
+        elif command in {_DO, _DONT}:
+            response = _WONT
+        else:
+            response = _DONT
         self.socket.sendall(bytes((_IAC, response, option)))
 
     def _decode_telnet(self, chunk: bytes) -> bytes:
@@ -92,7 +129,7 @@ class _SCPISocket:
                     self._telnet_state = "data"
             elif self._telnet_state == "negotiation":
                 if self._telnet_command is not None:
-                    self._send_telnet_refusal(self._telnet_command, value)
+                    self._send_telnet_response(self._telnet_command, value)
                 self._telnet_command = None
                 self._telnet_state = "data"
             elif self._telnet_state == "subnegotiation":
@@ -113,8 +150,20 @@ class _SCPISocket:
             raise RuntimeError("Scope closed the Telnet/SCPI connection")
         self.buffer += self._decode_telnet(chunk)
 
-    def _read_until_prompt(self, context: str) -> bytes:
+    def _read_until_prompt(
+        self, context: str, *, overall_timeout_s: float | None = None
+    ) -> bytes:
+        deadline = (
+            None if overall_timeout_s is None else time.monotonic() + overall_timeout_s
+        )
         while _PROMPT not in self.buffer:
+            if deadline is not None:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0.0:
+                    raise TimeoutError(f"Timed out waiting for Keysight {context}")
+                if self.socket is None:
+                    raise RuntimeError("Scope is not connected")
+                self.socket.settimeout(remaining)
             self._receive(context)
         response, self.buffer = self.buffer.split(_PROMPT, 1)
         return response
@@ -199,9 +248,16 @@ class _SCPISocket:
 
 
 class KeysightLanScope:
-    def __init__(self, ip: str, *, port: int = SCPI_PORT, timeout_s: float = 6.0) -> None:
+    def __init__(
+        self,
+        ip: str,
+        *,
+        port: int = SCPI_PORT,
+        timeout_s: float = 6.0,
+        handshake_timeout_s: float = TELNET_HANDSHAKE_TIMEOUT_S,
+    ) -> None:
         self.ip = ip
-        self.scpi = _SCPISocket(ip, port, timeout_s)
+        self.scpi = _SCPISocket(ip, port, timeout_s, handshake_timeout_s)
         self.idn: str | None = None
 
     def connect(self) -> str:
