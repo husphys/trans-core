@@ -40,8 +40,8 @@ Steinmetz-informed latent learning and the Arrhenius-based LSP target remain con
 
 ## Hardware and Raspberry Pi requirements
 
-- 64-bit Raspberry Pi OS on a Pi 4 or newer is recommended.
-- Keysight EDUX1052A-compatible raw-LAN SCPI endpoint on TCP port 5025.
+- Validated deployment target: Raspberry Pi 3B, 64-bit Raspberry Pi OS, `aarch64`, Python 3.13.5.
+- Keysight EDUX1052A Telnet/SCPI endpoint on TCP port 5024.
 - Scope CH1: transformer primary voltage.
 - Scope CH2: transformer secondary voltage.
 - CH1 and CH2 must be captured in one synchronized acquisition record.
@@ -49,7 +49,7 @@ Steinmetz-informed latent learning and the Arrhenius-based LSP target remain con
 - No Keithley meter, second oscilloscope, or physical temperature sensor is required for this prototype.
 - Ambient temperature is mandatory manual input and is visibly labeled `Manual input`; the application starts this field blank and never substitutes 25 °C or another default. Replay fills the value from recorded evidence, while live inference rejects a missing value.
 
-The existing acquisition environment used raw sockets rather than PyVISA. `acquisition/keysight_lan.py` preserves that approach and the established ASCII waveform commands. Live mode measures frequency using repeated Keysight CH1 `:MEASure:FREQuency?` queries and a median/stability check.
+The deployment uses a minimal Telnet-aware socket transport rather than PyVISA. It refuses Telnet options, consumes only whole banner/prompt records, preserves length-framed waveform payload bytes, and retains the established ASCII waveform commands. Live mode measures frequency using repeated Keysight CH1 `:MEASure:FREQuency?` queries and a median/stability check. The GUI defaults to `192.168.2.149:5024`, while both fields remain user-editable.
 
 PySide6 was retained as requested. It is not installed in the current `trans-core` environment, and Raspberry Pi wheel availability depends on the exact 64-bit OS/Python combination. Install it only in the demo environment. If the PyPI wheel is unavailable, use the distribution's Qt-for-Python package; the GUI-independent engine and `--headless-smoke` do not import PySide6. No silent framework switch was made.
 
@@ -106,7 +106,7 @@ Regenerate the artifact deterministically:
 
 ## Live and replay modes
 
-Live mode connects directly to the Keysight by IP, requests a synchronized two-channel capture, runs the frozen pipeline, and refreshes at a user-selected interval. Hard real-time behavior is not claimed.
+Live mode connects directly to the Keysight by IP, requests a synchronized two-channel capture, runs the frozen pipeline, and refreshes at a user-selected interval. Physical Telnet identity/frequency/VRMS are verified, but physical CH1/CH2 waveform acquisition and live MEPI inference remain pending. Hard real-time behavior is not claimed.
 
 Simulation / Replay uses two real 3.9-V demonstration captures under `apps/mepi_monitor/assets/replay`. Their SHA256 values and source sample IDs are recorded in `assets/replay/manifest.json`. They remain application-demonstration evidence and are not assigned a train/validation/test split. Replay and hardware captures call the same `run_capture` path.
 

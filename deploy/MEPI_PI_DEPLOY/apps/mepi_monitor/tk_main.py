@@ -52,7 +52,7 @@ def main() -> None:
     parser.add_argument("--headless-smoke", action="store_true")
     parser.add_argument("--replay-smoke", action="store_true")
     parser.add_argument("--test-scope", metavar="IP")
-    parser.add_argument("--port", type=int, default=5025)
+    parser.add_argument("--port", type=int, default=5024)
     args = parser.parse_args()
     root = project_root()
     if args.test_scope:

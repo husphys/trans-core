@@ -10,6 +10,14 @@ import pytest
 
 from apps.mepi_monitor.deployment import sha256_file, verify_deployment
 from apps.mepi_monitor.domain_guard.guard import PredictionDomain
+from apps.mepi_monitor.pi_runtime import (
+    CPU_TORCH_VERSION,
+    CPU_TORCH_WHEEL,
+    CPU_TORCH_WHEEL_SHA256,
+    PiRuntimeError,
+    replay_signatures,
+    validate_pip_report,
+)
 from apps.mepi_monitor.inference.engine import FrozenMEPIEngine
 from apps.mepi_monitor.live.replay import ReplaySource
 from apps.mepi_monitor.profiles.models import builtin_profiles
@@ -139,3 +147,131 @@ def test_pi_installer_rejects_armv7l_before_install(tmp_path: Path) -> None:
     assert "sudo" not in result.stdout
     assert "aarch64" in result.stdout
     assert result.stderr == ""
+
+
+def _cpu_pip_plan(*extra_packages: str) -> dict[str, object]:
+    torch_item = {
+        "download_info": {
+            "url": (
+                "https://download-r2.pytorch.org/whl/cpu/"
+                "torch-2.14.0%2Bcpu-cp313-cp313-manylinux_2_28_aarch64.whl"
+            ),
+            "archive_info": {"hashes": {"sha256": CPU_TORCH_WHEEL_SHA256}},
+        },
+        "metadata": {
+            "name": "torch",
+            "version": CPU_TORCH_VERSION,
+            "requires_dist": ["filelock", "typing-extensions>=4.10.0", "sympy>=1.13.3"],
+        },
+    }
+    dependencies = [
+        {"download_info": {}, "metadata": {"name": name, "version": "1.0"}}
+        for name in extra_packages
+    ]
+    return {"install": [torch_item, *dependencies]}
+
+
+def test_cpu_pip_plan_accepts_only_exact_official_wheel(tmp_path: Path) -> None:
+    report = tmp_path / "pip-plan.json"
+    report.write_text(json.dumps(_cpu_pip_plan("filelock", "sympy")), encoding="utf-8")
+    result = validate_pip_report(report)
+    assert result["status"] == "PASS"
+    assert result["torch_version"] == CPU_TORCH_VERSION
+    assert result["wheel"] == CPU_TORCH_WHEEL
+    assert result["wheel_sha256"] == CPU_TORCH_WHEEL_SHA256
+    assert result["forbidden_packages"] == []
+
+
+@pytest.mark.parametrize("forbidden", ["nvidia-cublas", "cuda-toolkit", "triton"])
+def test_cpu_pip_plan_rejects_gpu_dependencies_before_install(
+    tmp_path: Path, forbidden: str
+) -> None:
+    report = tmp_path / "pip-plan.json"
+    report.write_text(json.dumps(_cpu_pip_plan(forbidden)), encoding="utf-8")
+    with pytest.raises(PiRuntimeError, match="FORBIDDEN CUDA/NVIDIA DEPENDENCY"):
+        validate_pip_report(report)
+
+
+def test_pi_installer_uses_disk_backed_tmp_when_system_tmp_is_small(
+    tmp_path: Path,
+) -> None:
+    installer = ROOT / "deploy/MEPI_PI_DEPLOY/install_pi.sh"
+    if not installer.is_file():
+        pytest.skip("deployment not built yet")
+    fake_bin = tmp_path / "bin"
+    fake_bin.mkdir()
+    marker = tmp_path / "sudo-was-called"
+    scripts = {
+        "uname": "#!/bin/sh\necho aarch64\n",
+        "python3": (
+            "#!/bin/sh\n"
+            "if [ \"${1:-}\" = \"--version\" ]; then echo 'Python 3.13.5'; fi\n"
+            "exit 0\n"
+        ),
+        "df": (
+            "#!/bin/sh\n"
+            "for last do :; done\n"
+            "echo 'Filesystem 1024-blocks Used Available Capacity Mounted on'\n"
+            "if [ \"$last\" = \"/tmp\" ]; then\n"
+            "  echo 'tmpfs 463872 13872 450000 3% /tmp'\n"
+            "else\n"
+            "  echo '/dev/mmcblk0p2 30000000 7000000 23000000 24% /'\n"
+            "fi\n"
+        ),
+        "findmnt": (
+            "#!/bin/sh\n"
+            "for last do :; done\n"
+            "if [ \"$last\" = \"/tmp\" ]; then echo 'tmpfs tmpfs';\n"
+            "else echo '/dev/mmcblk0p2 ext4'; fi\n"
+        ),
+        "sudo": f"#!/bin/sh\ntouch '{marker}'\nexit 99\n",
+    }
+    for name, content in scripts.items():
+        path = fake_bin / name
+        path.write_text(content, encoding="utf-8")
+        path.chmod(0o755)
+    fake_home = tmp_path / "home"
+    fake_home.mkdir()
+    environment = os.environ.copy()
+    environment.update(
+        {
+            "HOME": str(fake_home),
+            "MEPI_INSTALL_PREFLIGHT_ONLY": "1",
+            "PATH": f"{fake_bin}:{environment['PATH']}",
+        }
+    )
+    result = subprocess.run(
+        ["bash", str(installer)],
+        cwd=installer.parent,
+        env=environment,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "System /tmp: tmpfs tmpfs; free 450000 KiB" in result.stdout
+    assert f"Selected TMPDIR: {fake_home}/.cache/mepi-install-tmp/run-" in result.stdout
+    assert "Selected TMPDIR filesystem: /dev/mmcblk0p2 ext4" in result.stdout
+    assert "MEPI installer preflight: PASS" in result.stdout
+    assert not marker.exists()
+
+
+def test_pi_requirements_are_exact_cpu_only() -> None:
+    requirements = (ROOT / "scripts/pi_deploy_templates/requirements-pi.txt").read_text(
+        encoding="utf-8"
+    )
+    assert "https://download.pytorch.org/whl/cpu" in requirements
+    assert f"torch=={CPU_TORCH_VERSION}" in requirements
+    assert "torch>=" not in requirements
+
+
+def test_all_real_replay_records_have_complete_cpu_signatures() -> None:
+    payload = replay_signatures(ROOT)
+    assert payload["status"] == "PASS"
+    assert len(payload["records"]) >= 2
+    for record in payload["records"]:
+        assert len(record["b_waveform_t"]) == 1024
+        assert set(record["prediction"]) == {
+            "efficiency_percent", "core_loss_w", "lsp", "lsp_sigma"
+        }
+        assert record["domain_status"]

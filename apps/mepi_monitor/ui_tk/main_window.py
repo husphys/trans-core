@@ -108,7 +108,7 @@ class MainWindow:
         pane.add(controls, weight=0); pane.add(plots, weight=1); pane.add(values, weight=0)
 
         box = _group(controls, "CONNECTION"); box.pack(fill="x", pady=3)
-        self.source = tk.StringVar(value="Simulation / Replay"); self.ip = tk.StringVar(value="192.168.1.149"); self.port = tk.StringVar(value="5025")
+        self.source = tk.StringVar(value="Simulation / Replay"); self.ip = tk.StringVar(value="192.168.2.149"); self.port = tk.StringVar(value="5024")
         for label, widget in (
             ("Source", ttk.Combobox(box, textvariable=self.source, values=("Simulation / Replay", "Keysight LAN"), state="readonly")),
             ("Scope IP", ttk.Entry(box, textvariable=self.ip)), ("Port", ttk.Entry(box, textvariable=self.port))):

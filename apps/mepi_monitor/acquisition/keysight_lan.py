@@ -1,4 +1,4 @@
-"""Keysight EDUX raw-LAN acquisition adapted from the project acquisition script.
+"""Keysight EDUX Telnet/SCPI acquisition adapted from the project acquisition script.
 
 Only Scope #2 semantics are used: CH1 primary Vin and CH2 secondary Vout from
 one synchronized acquisition.  No Keithley or second oscilloscope is required.
@@ -13,8 +13,17 @@ from dataclasses import dataclass
 
 import numpy as np
 
-SCPI_PORT = 5025
+SCPI_PORT = 5024
 WAVEFORM_POINTS = 5000
+
+_IAC = 255
+_DONT = 254
+_DO = 253
+_WONT = 252
+_WILL = 251
+_SB = 250
+_SE = 240
+_PROMPT = b">>"
 
 
 @dataclass(frozen=True)
@@ -31,37 +40,156 @@ class _SCPISocket:
         self.ip, self.port, self.timeout_s = ip, int(port), float(timeout_s)
         self.socket: socket.socket | None = None
         self.buffer = b""
+        self._telnet_state = "data"
+        self._telnet_command: int | None = None
 
     def connect(self) -> str:
         self.close()
         self.socket = socket.create_connection((self.ip, self.port), self.timeout_s)
         self.socket.settimeout(self.timeout_s)
+        self.buffer = b""
+        self._telnet_state = "data"
+        self._telnet_command = None
+        self._read_until_prompt("welcome banner")
         return self.query("*IDN?")
 
     def close(self) -> None:
         if self.socket is not None:
-            self.socket.close()
+            try:
+                self.socket.close()
+            except OSError:
+                pass
         self.socket, self.buffer = None, b""
+        self._telnet_state = "data"
+        self._telnet_command = None
 
-    def write(self, command: str) -> None:
+    def _send_telnet_refusal(self, command: int, option: int) -> None:
         if self.socket is None:
             raise RuntimeError("Scope is not connected")
-        self.socket.sendall((command.strip() + "\n").encode("ascii"))
+        response = _WONT if command in {_DO, _DONT} else _DONT
+        self.socket.sendall(bytes((_IAC, response, option)))
+
+    def _decode_telnet(self, chunk: bytes) -> bytes:
+        """Remove Telnet controls while preserving application bytes exactly."""
+
+        output = bytearray()
+        for value in chunk:
+            if self._telnet_state == "data":
+                if value == _IAC:
+                    self._telnet_state = "iac"
+                else:
+                    output.append(value)
+            elif self._telnet_state == "iac":
+                if value == _IAC:
+                    output.append(_IAC)
+                    self._telnet_state = "data"
+                elif value in {_DO, _DONT, _WILL, _WONT}:
+                    self._telnet_command = value
+                    self._telnet_state = "negotiation"
+                elif value == _SB:
+                    self._telnet_state = "subnegotiation"
+                else:
+                    self._telnet_state = "data"
+            elif self._telnet_state == "negotiation":
+                if self._telnet_command is not None:
+                    self._send_telnet_refusal(self._telnet_command, value)
+                self._telnet_command = None
+                self._telnet_state = "data"
+            elif self._telnet_state == "subnegotiation":
+                if value == _IAC:
+                    self._telnet_state = "subnegotiation_iac"
+            elif self._telnet_state == "subnegotiation_iac":
+                self._telnet_state = "data" if value == _SE else "subnegotiation"
+        return bytes(output)
+
+    def _receive(self, context: str) -> None:
+        if self.socket is None:
+            raise RuntimeError("Scope is not connected")
+        try:
+            chunk = self.socket.recv(65536)
+        except socket.timeout as exc:
+            raise TimeoutError(f"Timed out waiting for Keysight {context}") from exc
+        if not chunk:
+            raise RuntimeError("Scope closed the Telnet/SCPI connection")
+        self.buffer += self._decode_telnet(chunk)
+
+    def _read_until_prompt(self, context: str) -> bytes:
+        while _PROMPT not in self.buffer:
+            self._receive(context)
+        response, self.buffer = self.buffer.split(_PROMPT, 1)
+        return response
+
+    @staticmethod
+    def _clean_text_response(raw: bytes, command: str, *, allow_empty: bool = False) -> bytes:
+        """Strip only whole Telnet UI lines; never alter bytes inside a payload."""
+
+        command_bytes = command.strip().encode("ascii")
+        cleaned: list[bytes] = []
+        for line in raw.replace(b"\r\n", b"\n").replace(b"\r", b"\n").split(b"\n"):
+            value = line.strip()
+            if not value or value == command_bytes:
+                continue
+            if value.startswith(b"Welcome to Keysight InfiniiVision Oscilloscope"):
+                continue
+            cleaned.append(value)
+        response = b"\n".join(cleaned)
+        if not response and not allow_empty:
+            raise RuntimeError(f"Keysight returned an empty response to {command}")
+        return response
+
+    def _send_command(self, command: str) -> None:
+        if self.socket is None:
+            raise RuntimeError("Scope is not connected")
+        if self.buffer.strip():
+            raise RuntimeError("Unexpected unread data before the next Keysight command")
+        self.buffer = b""
+        self.socket.sendall(command.strip().encode("ascii") + b"\r\n")
+
+    def write(self, command: str) -> None:
+        self._send_command(command)
+        response = self._clean_text_response(
+            self._read_until_prompt(command), command, allow_empty=True
+        )
+        if response:
+            raise RuntimeError(f"Unexpected Keysight response to {command}: {response!r}")
 
     def query_bytes(self, command: str) -> bytes:
-        self.write(command)
-        while b"\n" not in self.buffer:
-            if self.socket is None:
-                raise RuntimeError("Scope is not connected")
-            chunk = self.socket.recv(65536)
-            if not chunk:
-                raise RuntimeError("Scope closed the raw-LAN connection")
-            self.buffer += chunk
-        line, self.buffer = self.buffer.split(b"\n", 1)
-        return line.rstrip(b"\r")
+        self._send_command(command)
+        while True:
+            block_marker = self.buffer.find(b"#")
+            prompt_marker = self.buffer.find(_PROMPT)
+            if block_marker >= 0 and (prompt_marker < 0 or block_marker < prompt_marker):
+                prefix = self.buffer[:block_marker]
+                if self._clean_text_response(prefix, command, allow_empty=True):
+                    raise RuntimeError("Unexpected text before Keysight IEEE waveform block")
+                while len(self.buffer) < block_marker + 2:
+                    self._receive(command)
+                digits_byte = self.buffer[block_marker + 1]
+                if not 48 <= digits_byte <= 57 or digits_byte == 48:
+                    raise RuntimeError("Unsupported Keysight IEEE waveform block header")
+                digits = digits_byte - 48
+                header_end = block_marker + 2 + digits
+                while len(self.buffer) < header_end:
+                    self._receive(command)
+                try:
+                    count = int(self.buffer[block_marker + 2 : header_end].decode("ascii"))
+                except ValueError as exc:
+                    raise RuntimeError("Invalid Keysight IEEE waveform block length") from exc
+                payload_end = header_end + count
+                while len(self.buffer) < payload_end:
+                    self._receive(command)
+                result = self.buffer[block_marker:payload_end]
+                self.buffer = self.buffer[payload_end:]
+                trailer = self._read_until_prompt(command)
+                if self._clean_text_response(trailer, command, allow_empty=True):
+                    raise RuntimeError("Unexpected text after Keysight IEEE waveform block")
+                return result
+            if prompt_marker >= 0:
+                return self._clean_text_response(self._read_until_prompt(command), command)
+            self._receive(command)
 
     def query(self, command: str) -> str:
-        return self.query_bytes(command).decode("ascii", "ignore").strip()
+        return self.query_bytes(command).decode("ascii", "strict").strip()
 
     def qfloat(self, command: str) -> float:
         value = float(self.query(command))

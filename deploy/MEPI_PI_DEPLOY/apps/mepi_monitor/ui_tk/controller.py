@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 import queue
-import socket
 import statistics
 import threading
 from collections import defaultdict
@@ -14,7 +13,7 @@ from typing import Any, Callable
 
 import numpy as np
 
-from apps.mepi_monitor.acquisition.keysight_lan import KeysightLanScope
+from apps.mepi_monitor.acquisition.keysight_lan import SCPI_PORT, KeysightLanScope
 from apps.mepi_monitor.domain_guard.guard import PredictionDomain
 from apps.mepi_monitor.inference.engine import FrozenMEPIEngine
 from apps.mepi_monitor.live.pipeline import LiveResult, run_capture
@@ -128,18 +127,16 @@ def screen_compatible_csv(
     return screened
 
 
-def test_scope_connection(ip: str, port: int = 5025, timeout_s: float = 6.0) -> str:
+def test_scope_connection(ip: str, port: int = SCPI_PORT, timeout_s: float = 6.0) -> str:
     """Issue only ``*IDN?`` and close; no acquisition or inference occurs."""
 
     if not ip.strip():
         raise ValueError("Scope IP is required")
-    with socket.create_connection((ip.strip(), int(port)), timeout_s) as connection:
-        connection.settimeout(timeout_s)
-        connection.sendall(b"*IDN?\n")
-        response = connection.recv(4096).decode("ascii", "ignore").strip()
-    if not response:
-        raise RuntimeError("Keysight returned an empty *IDN? response")
-    return response
+    scope = KeysightLanScope(ip.strip(), port=int(port), timeout_s=timeout_s)
+    try:
+        return scope.connect()
+    finally:
+        scope.disconnect()
 
 
 class MonitorWorker:
@@ -157,7 +154,7 @@ class MonitorWorker:
 
     def start(
         self, *, source: str, profile: TransformerProfile, ambient_temperature_c: float | None,
-        interval_s: float = 2.0, ip: str = "", port: int = 5025, replay_index: int = 0,
+        interval_s: float = 2.0, ip: str = "", port: int = SCPI_PORT, replay_index: int = 0,
         once: bool = False,
     ) -> None:
         if self.running:
