@@ -1,0 +1,5 @@
+# Minimal runtime only; Tkinter is installed with apt as python3-tk.
+numpy>=1.26,<3
+torch>=2.5,<3
+PyYAML>=6,<7
+matplotlib>=3.8,<4

@@ -105,6 +105,12 @@ domain guard. See the [Raspberry Pi and Keysight guide](docs/MEPI_DEMO_APPLICATI
 [final application audit](reports/MEPI_V1_5_DEMO_APPLICATION_AUDIT.md) for setup,
 scientific limitations, and validation status.
 
+For Raspberry Pi deployment, the Tkinter frontend is available through
+`python -m apps.mepi_monitor.tk_main`. The self-contained
+[`deploy/MEPI_PI_DEPLOY`](deploy/MEPI_PI_DEPLOY/) directory can be copied without
+the research repository; follow its `README_PI.md`, run `./install_pi.sh`, then
+`./test_pi.sh`. The original PySide6 frontend remains available for desktop use.
+
 ## Frequency-screening scope
 
 The persisted demonstration uses 150 measured demo rows, retains 146 usable rows after excluding four existing `HARD_FAIL` rows, and summarizes 15 predefined frequencies. It is an **offline proof-of-concept inside the measured operating domain**, not an independently validated universal optimal-frequency recommendation. No optimum is declared.

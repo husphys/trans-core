@@ -1,0 +1,147 @@
+{
+  "classification": {
+    "GREEN": "all features inside the empirical training 5th-95th percentile central range",
+    "RED": "at least one feature outside observed training min-max",
+    "YELLOW": "all features inside observed training min-max, with at least one outside the central range"
+  },
+  "feature_order": [
+    "frequency_hz",
+    "vin_rms_v",
+    "phase_shift_deg",
+    "temperature_ambient_c",
+    "B_peak_t",
+    "B_rms",
+    "B_thd_percent",
+    "dBdt_max",
+    "form_factor"
+  ],
+  "known_core_metadata": [
+    "COMMERCIAL",
+    "FE"
+  ],
+  "purpose": "warning_and_interpretation_only_no_clamping",
+  "schema_version": 1,
+  "source_artifact": "data/MEPI/v1_2/samples_qc_valid_v1_2.csv",
+  "source_split": "train",
+  "status": "FROZEN_TRAINING_DATA_DERIVED",
+  "training_rows": 687,
+  "variables": {
+    "B_peak_t": {
+      "robust_central_range": {
+        "lower": 0.14131010360177818,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": 0.6773678568288858,
+        "upper_quantile": 0.95
+      },
+      "source_column": "B_peak_t",
+      "training_max": 0.9259107649837688,
+      "training_min": 0.12117766376035632,
+      "units": "T"
+    },
+    "B_rms": {
+      "robust_central_range": {
+        "lower": 0.09936070875949192,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": 0.4780998090866346,
+        "upper_quantile": 0.95
+      },
+      "source_column": "B_rms",
+      "training_max": 0.6505901972584309,
+      "training_min": 0.08542121908983358,
+      "units": "T"
+    },
+    "B_thd_percent": {
+      "robust_central_range": {
+        "lower": 0.5352264613197785,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": 1.292238887441664,
+        "upper_quantile": 0.95
+      },
+      "source_column": "B_thd_percent",
+      "training_max": 1.9028495986287526,
+      "training_min": 0.33120228329565177,
+      "units": "%"
+    },
+    "dBdt_max": {
+      "robust_central_range": {
+        "lower": 3539.3528259277346,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": 12117.492759094228,
+        "upper_quantile": 0.95
+      },
+      "source_column": "dBdt_max",
+      "training_max": 26314.79931640625,
+      "training_min": 3380.2057800292973,
+      "units": "T/s"
+    },
+    "form_factor": {
+      "robust_central_range": {
+        "lower": 1.1088527394571168,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": 1.1102403599483746,
+        "upper_quantile": 0.95
+      },
+      "source_column": "form_factor",
+      "training_max": 1.1105778552090715,
+      "training_min": 1.1079604239658392,
+      "units": "dimensionless"
+    },
+    "frequency_hz": {
+      "robust_central_range": {
+        "lower": 1251.9,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": 4494.0,
+        "upper_quantile": 0.95
+      },
+      "source_column": "frequency_hz",
+      "training_max": 4505.0,
+      "training_min": 998.7,
+      "units": "Hz"
+    },
+    "phase_shift_deg": {
+      "robust_central_range": {
+        "lower": -3.552018384270579,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": -0.31020838380410753,
+        "upper_quantile": 0.95
+      },
+      "source_column": "phase_shift_deg",
+      "training_max": -0.15626939016891775,
+      "training_min": -5.40328926092273,
+      "units": "degree"
+    },
+    "temperature_ambient_c": {
+      "robust_central_range": {
+        "lower": 25.5,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": 29.624999999999915,
+        "upper_quantile": 0.95
+      },
+      "source_column": "temperature_ambient_c",
+      "training_max": 31.0,
+      "training_min": 25.0,
+      "units": "degC"
+    },
+    "vin_rms_v": {
+      "robust_central_range": {
+        "lower": 2.9078366566796663,
+        "lower_quantile": 0.05,
+        "method": "empirical_quantile",
+        "upper": 5.85522699384334,
+        "upper_quantile": 0.95
+      },
+      "source_column": "vin_rms_v",
+      "training_max": 5.93635852167656,
+      "training_min": 2.838561385323078,
+      "units": "V RMS"
+    }
+  }
+}

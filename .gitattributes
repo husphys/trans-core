@@ -1,3 +1,4 @@
 *.ckpt filter=lfs diff=lfs merge=lfs -text
 *.pt filter=lfs diff=lfs merge=lfs -text
 *.pth filter=lfs diff=lfs merge=lfs -text
+deploy/MEPI_PI_DEPLOY.zip filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,33 @@
+{
+  "architecture": "8-layer xLSTM",
+  "build_timestamp_utc": "2026-09-26T02:48:05.586756+00:00",
+  "checkpoint_filename": "experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/l3_1_l4_0p05/best_checkpoint.pt",
+  "checkpoint_sha256": "0315922cab43aad2cde35016f1a60a62f3df4bc94844310e5ef84aee88389b33",
+  "deployment_version": "1.0.0",
+  "loss_weights": {
+    "lambda1": 1.0,
+    "lambda2": 1.0,
+    "lambda3": 1.0,
+    "lambda4": 0.05
+  },
+  "model_selection_performed": false,
+  "normalization_sha256": "ea9858df0b5367a8cf8c7a73cf36073a6e255564d35b290e61fabf3d56be6ab2",
+  "prediction_domain_sha256": "6b8a79f0e272ee4903aa33a28233eaafa33705d394ec88e1310b752ad8d68c17",
+  "runtime_artifacts": {
+    "apps/mepi_monitor/assets/replay/manifest.json": "f7bf6767833dea181acafc2b9a5a0191f7c1d73a761cfc648aa96e2c45be0fe3",
+    "artifacts/finetune_v1_4/steinmetz_prior_train_v1_4.json": "a5e110924093455cf6e0912ed4fcf82c046fec82326f0480d56358532662d5f8",
+    "configs/final_model_v1_5.yaml": "4b18d275be0a56f09371f2fd91d3fe03bba72a7cee6ca732014fbbf043dcdf96",
+    "configs/finetune_v1_5.yaml": "6c10585593b786599f8f545f9550fdf96974ee13537663bc5f768943f5fdf8fb",
+    "data/MEPI/demo_manifest_v2.csv": "812ea7e87ad69c02702a411d0f1fe6ef241b9753586a50f1d38522d25d7f9556",
+    "data/MEPI/v1_2/train_normalization_v1_2.json": "ea9858df0b5367a8cf8c7a73cf36073a6e255564d35b290e61fabf3d56be6ab2",
+    "experiments/finetune_v1_5_xlstm_depth8/final_model_manifest.json": "607bad9d532777f11a6659459cfa59e6a78e054bbd6ed95abe0e4f3dfffe67c1",
+    "experiments/finetune_v1_5_xlstm_depth8/loss_weight_sensitivity/l3_1_l4_0p05/best_checkpoint.pt": "0315922cab43aad2cde35016f1a60a62f3df4bc94844310e5ef84aee88389b33",
+    "experiments/xlstm_depth_v1/depth_8/best_checkpoint.pt": "fdbeb87932dd6e20c45104f2ff074e267b414587a5ce9e57e48afb828034055c",
+    "reports/MEPI_V1_5_POSTHOC_TEST_METRICS.json": "d757443e71c6c0631ee6ff391b36ab2f791833728545ad1604b4a4cccf641b48",
+    "reports/MEPI_V1_5_PREDICTION_DOMAIN.json": "6b8a79f0e272ee4903aa33a28233eaafa33705d394ec88e1310b752ad8d68c17"
+  },
+  "scientific_model_version": "MEPI v1.5",
+  "source_config_sha256": "6c10585593b786599f8f545f9550fdf96974ee13537663bc5f768943f5fdf8fb",
+  "source_git_commit": "e7bc42b2c261e86cd4df0eaba220d3992bd4f4ac",
+  "training_performed": false
+}
