@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "evidence_collection": "MEPI physical Raspberry Pi deployment demonstration",
+  "date_added_utc": "2026-09-26",
+  "original_source": {
+    "windows_path": "E:\\MEPI",
+    "mounted_path_used_for_audit": "/mnt/e/MEPI",
+    "provenance": "User-supplied physical-demo evidence",
+    "originals_modified": false
+  },
+  "artifacts": [
+    {
+      "artifact_id": "mepi-pi-keysight-transport",
+      "type": "source_code",
+      "original_source_path": "keysight_lan.py",
+      "canonical_source_path": "apps/mepi_monitor/acquisition/keysight_lan.py",
+      "repository_path": "deploy/MEPI_PI_DEPLOY/apps/mepi_monitor/acquisition/keysight_lan.py",
+      "sha256": "652cd4b4013f6d6de3ac2997036e29a5fe9461ddbbb5b0d8203fc1189ab99318",
+      "size_bytes": 13761,
+      "description": "Keysight EDUX1052A Telnet/SCPI transport used in the physical Raspberry Pi demonstration.",
+      "provenance": "Final physical Raspberry Pi demonstration implementation supplied by the user.",
+      "verification_status": "user_identified_as_demonstrated_and_byte_verified",
+      "potential_supporting_material_role": "As-demonstrated instrument transport source"
+    },
+    {
+      "artifact_id": "mepi-pi-final-gui",
+      "type": "source_code",
+      "original_source_path": "main_window.py",
+      "canonical_source_path": "apps/mepi_monitor/ui_tk/main_window.py",
+      "repository_path": "deploy/MEPI_PI_DEPLOY/apps/mepi_monitor/ui_tk/main_window.py",
+      "sha256": "7683a9baeb3dff4cb1a8ddc481c6f36dd5cec85a8091bb0f1f3ca69b4379a70d",
+      "size_bytes": 27329,
+      "description": "Touch-oriented Tk MEPI interface used in the physical Raspberry Pi demonstration.",
+      "provenance": "Final physical Raspberry Pi demonstration implementation supplied by the user.",
+      "verification_status": "user_identified_as_demonstrated_and_byte_verified",
+      "potential_supporting_material_role": "As-demonstrated Raspberry Pi GUI source"
+    },
+    {
+      "artifact_id": "mepi-physical-setup-photo-001",
+      "type": "photo",
+      "original_source_path": "IMG_1668.JPG",
+      "repository_path": "evidence/physical_demo/images/measurement_setup/IMG_1668.JPG",
+      "original_filename": "IMG_1668.JPG",
+      "sha256": "ff20afa211875c8615d8189afd568bb4a216336bcb29d61ae5f910c597f7a868",
+      "size_bytes": 3222968,
+      "image_dimensions_pixels": {
+        "width": 4032,
+        "height": 3024
+      },
+      "capture_metadata": {
+        "make": "Apple",
+        "model": "iPhone 12 Pro Max",
+        "datetime_original": "2026-09-26T18:25:27+07:00"
+      },
+      "description": "Photograph visibly showing a benchtop MEPI prototype, a Keysight EDUX1052A displaying two waveform traces, measurement/power hardware and wiring, transformer/electronics, and a screen displaying the MEPI interface.",
+      "provenance": "User-supplied physical-demo evidence; original bytes and EXIF retained.",
+      "verification_status": "source_hash_metadata_and_visual_content_verified",
+      "potential_supporting_material_role": "Physical measurement-system and deployed-interface photograph"
+    },
+    {
+      "artifact_id": "mepi-video-software-interface",
+      "type": "external_video",
+      "video_id": "T-xyvZ_ODOQ",
+      "url": "https://www.youtube.com/watch?v=T-xyvZ_ODOQ",
+      "title": "Software_interface",
+      "description": "User-described software control and GUI demonstration.",
+      "provenance": "Public YouTube reference supplied by the user.",
+      "verification_status": "public_title_and_availability_verified_2026-09-26_utc_content_not_independently_reviewed",
+      "potential_supporting_material_role": "Software-interface demonstration video"
+    },
+    {
+      "artifact_id": "mepi-video-prototype-test",
+      "type": "external_video",
+      "video_id": "ZZc24mB8yK4",
+      "url": "https://www.youtube.com/watch?v=ZZc24mB8yK4",
+      "title": "prototype test",
+      "description": "User-described physical MEPI prototype operation.",
+      "provenance": "Public YouTube reference supplied by the user.",
+      "verification_status": "public_title_and_availability_verified_2026-09-26_utc_content_not_independently_reviewed",
+      "potential_supporting_material_role": "Physical prototype demonstration video"
+    }
+  ],
+  "claim_boundary": {
+    "physical_implementation_evidence": true,
+    "quantitative_scientific_validation": false,
+    "notes": "Media and user report document implementation and demonstration. They do not independently establish accuracy, generalization, calibrated uncertainty, traceability, hard real-time performance, lifetime validity, superiority, or long-term reliability."
+  }
+}

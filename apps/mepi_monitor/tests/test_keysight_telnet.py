@@ -89,7 +89,7 @@ class MockKeysightTelnetServer(AbstractContextManager["MockKeysightTelnetServer"
 
         connection.sendall(
             bytes((_IAC, _WILL, 3, _IAC, _WILL, 42))
-            + b"Welcome to Keysight InfiniiVision Oscilloscope EDUX1052A - CN63260332\r\n>>\r\n>>"
+            + b"Welcome to Keysight InfiniiVision Oscilloscope EDUX1052A - CN63260332\r\n>>"
         )
         responses = {self._expect_negotiation(connection), self._expect_negotiation(connection)}
         if responses != {(_DO, 3), (_DONT, 42)}:
@@ -111,7 +111,7 @@ class MockKeysightTelnetServer(AbstractContextManager["MockKeysightTelnetServer"
             self.commands.append(command)
             echo = command.encode("ascii") + b"\r\n"
             if command == "*IDN?":
-                response = echo + (
+                response = b"\r\n>>" + echo + (
                     b"KEYSIGHT TECHNOLOGIES,EDUX1052A,CN63260332,02.12.2021071625\r\n>>\r\n"
                 )
             elif command == ":MEASure:FREQuency? CHANnel1":
@@ -251,7 +251,7 @@ def test_physical_negotiation_command_echo_queries_and_reconnect() -> None:
         assert server.commands.count(":MEASure:VRMS? CHANnel1") == 2
 
 
-def test_stale_second_initialization_prompt_cannot_terminate_idn_query() -> None:
+def test_delayed_second_initialization_prompt_cannot_terminate_idn_query() -> None:
     with MockKeysightTelnetServer() as server:
         transport = _SCPISocket(server.host, server.port, timeout_s=0.5)
         assert transport.connect() == (

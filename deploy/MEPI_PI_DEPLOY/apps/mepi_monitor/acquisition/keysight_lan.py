@@ -189,8 +189,7 @@ class _SCPISocket:
     def _send_command(self, command: str) -> None:
         if self.socket is None:
             raise RuntimeError("Scope is not connected")
-        stale_ui = self.buffer.replace(_PROMPT, b"")
-        if stale_ui.strip():
+        if self.buffer.strip():
             raise RuntimeError("Unexpected unread data before the next Keysight command")
         self.buffer = b""
         self.socket.sendall(command.strip().encode("ascii") + b"\r\n")
@@ -235,7 +234,16 @@ class _SCPISocket:
                     raise RuntimeError("Unexpected text after Keysight IEEE waveform block")
                 return result
             if prompt_marker >= 0:
-                return self._clean_text_response(self._read_until_prompt(command), command)
+                raw = self._read_until_prompt(command)
+                response = self._clean_text_response(
+                    raw, command, allow_empty=True
+                )
+                # The physical EDUX1052A can emit a delayed duplicate empty
+                # prompt (">>") after initialization.  An empty prompt is
+                # session UI, not the response to the command just sent.
+                if not response:
+                    continue
+                return response
             self._receive(command)
 
     def query(self, command: str) -> str:
