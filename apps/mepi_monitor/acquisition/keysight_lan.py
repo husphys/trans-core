@@ -189,7 +189,8 @@ class _SCPISocket:
     def _send_command(self, command: str) -> None:
         if self.socket is None:
             raise RuntimeError("Scope is not connected")
-        if self.buffer.strip():
+        stale_ui = self.buffer.replace(_PROMPT, b"")
+        if stale_ui.strip():
             raise RuntimeError("Unexpected unread data before the next Keysight command")
         self.buffer = b""
         self.socket.sendall(command.strip().encode("ascii") + b"\r\n")
