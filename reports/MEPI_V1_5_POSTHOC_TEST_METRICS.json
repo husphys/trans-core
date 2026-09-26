@@ -1,0 +1,82 @@
+{
+  "CHECKPOINT_CHANGED": false,
+  "FINAL_TEST_LEDGER_MODIFIED": false,
+  "HYPERPARAMETER_CHANGED": false,
+  "MODEL_SELECTION_PERFORMED": false,
+  "POSTHOC_ANALYSIS_ONLY": true,
+  "TRAINING_PERFORMED": false,
+  "agreement_with_frozen_final_report": {
+    "core_loss": {
+      "absolute_differences": [
+        7.58687345586706e-10,
+        9.040002843518913e-10,
+        2.0198739347776495e-09
+      ],
+      "within_1e-5": true
+    },
+    "efficiency": {
+      "absolute_differences": [
+        2.436018506912774e-07,
+        8.63232429981764e-08,
+        3.2483895573420796e-09
+      ],
+      "within_1e-5": true
+    },
+    "lsp": {
+      "absolute_differences": [
+        1.8417830871531038e-09,
+        3.6271337669480097e-09,
+        1.200419286195853e-08
+      ],
+      "within_1e-5": true
+    }
+  },
+  "checkpoint_sha256": "0315922cab43aad2cde35016f1a60a62f3df4bc94844310e5ef84aee88389b33",
+  "err95": {
+    "epsilon": 1e-12,
+    "formula": "100 * Q_0.95(abs(y-y_hat)/(abs(y)+epsilon))",
+    "source": "src/evaluation/metrics.py"
+  },
+  "figures": [
+    "reports/figures/MEPI_final_test_measured_vs_predicted.png",
+    "reports/figures/MEPI_final_test_measured_vs_predicted.pdf",
+    "reports/figures/MEPI_final_test_residual_diagnostics.png"
+  ],
+  "final_model_manifest": "experiments/finetune_v1_5_xlstm_depth8/final_model_manifest.json",
+  "final_model_manifest_sha256": "607bad9d532777f11a6659459cfa59e6a78e054bbd6ed95abe0e4f3dfffe67c1",
+  "metrics": {
+    "core_loss": {
+      "err95_percent": 25.27394796170344,
+      "mae": 0.013692542924205152,
+      "r2": 0.970616638688784,
+      "rmse": 0.016459417833400165
+    },
+    "efficiency": {
+      "err95_percent": 4.438475707225697,
+      "mae": 1.1456658997975973,
+      "r2": 0.9817636969366025,
+      "rmse": 1.4833747584895371
+    },
+    "lsp": {
+      "err95_percent": 13.01852769904988,
+      "mae": 0.027950684043434367,
+      "mape_percent": 4.788047575492323,
+      "predicted_sigma": {
+        "calibrated_uncertainty": false,
+        "maximum": 0.055010895005788686,
+        "mean": 0.03511826853238883,
+        "median": 0.03313283386519869,
+        "minimum": 0.02521147892000669
+      },
+      "r2": 0.9162509356972276,
+      "rmse": 0.03636576595076544
+    }
+  },
+  "predictions_csv": "reports/MEPI_V1_5_POSTHOC_TEST_PREDICTIONS.csv",
+  "predictions_sha256": "31830458c4160f33c286113b0cbd1e435d8b3f2556bbd04fb8881b99bc1af3e7",
+  "status": "POSTHOC_REPORTING_COMPLETE",
+  "test_dataset_path": "data/MEPI/v1_2/samples_qc_valid_v1_2.csv",
+  "test_dataset_sha256": "d280a1ca6c54bb77100779b1b458d16269eaeba5ba834a15f09ff4cf36d04273",
+  "test_groups": 9,
+  "test_rows": 90
+}

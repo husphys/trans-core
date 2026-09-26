@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "purpose": "real synchronized Keysight CH1/CH2 replay through the live pipeline",
+  "source_manifest": "data/MEPI/demo_manifest_v2.csv",
+  "dataset_mode": "demo",
+  "model_development_split": null,
+  "captures": [
+    {
+      "file": "FE_F1000_V3p9_R01_scope2.csv",
+      "sha256": "8fad5a2e3c54b547c9093cce497afddbc3e280c22c7612095f4f66af7f1227b3",
+      "sample_id": "session_20260802_070352_FE_F1000_V3p9_R01_20260802_071011_988727",
+      "core_id": "FE",
+      "repeat_id": 1,
+      "frequency_hz": 1002.8,
+      "frequency_source": "recorded Keysight CH1 measurement",
+      "ambient_temperature_c": 26.5,
+      "ambient_source": "recorded manual/room channel value in demo evidence",
+      "vin_rms_v": 3.9312596546660203,
+      "phase_shift_deg": -0.8836985466686372,
+      "B_peak_t": 0.7151030914633907,
+      "B_rms": 0.5015474663825612,
+      "B_thd_percent": 1.5423472439452632,
+      "dBdt_max": 4682.783435058594,
+      "form_factor": 1.1087242583358143,
+      "qc_status": "WARNING",
+      "qc_warning_reasons": "TEMPERATURE_CALIBRATION_PENDING;VIN_SCOPE1_SCOPE2_MISMATCH"
+    },
+    {
+      "file": "COMMERCIAL_F1000_V3p9_R04_scope2.csv",
+      "sha256": "e469531f9b84ba5a3acc7ffc6aa41081ad831820abd10fd09ed9d64155242a85",
+      "sample_id": "session_20260802_075729_COMMERCIAL_F1000_V3p9_R04_20260802_080355_983990",
+      "core_id": "COMMERCIAL",
+      "repeat_id": 4,
+      "frequency_hz": 1004.7,
+      "frequency_source": "recorded Keysight CH1 measurement",
+      "ambient_temperature_c": 25.75,
+      "ambient_source": "recorded manual/room channel value in demo evidence",
+      "vin_rms_v": 3.999906812023569,
+      "phase_shift_deg": -5.4701477649051435,
+      "B_peak_t": 0.724715354864145,
+      "B_rms": 0.5094560207452894,
+      "B_thd_percent": 1.4258564296264769,
+      "dBdt_max": 4757.822341918945,
+      "form_factor": 1.1083149907591983,
+      "qc_status": "WARNING",
+      "qc_warning_reasons": "TEMPERATURE_CALIBRATION_PENDING;VIN_REFERENCE_DRIFT;VIN_SCOPE1_SCOPE2_MISMATCH"
+    }
+  ]
+}

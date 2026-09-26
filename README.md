@@ -44,7 +44,7 @@ The nine downstream tabular inputs are:
 
 The waveform input is the reconstructed and frozen `B(t)_1024` sequence. The three outputs are efficiency, power loss (`P_loss`), and LSP.
 
-**LSP is a physics-guided relative lifetime/thermal-stress proxy. It is not directly measured remaining useful life or service lifetime.**
+**LSP is a dimensionless, Arrhenius-informed relative thermal-stress proxy. It is not lifetime, remaining useful life, time-to-failure, or measured degradation.**
 
 ## Frozen v1.5 model
 
@@ -86,6 +86,24 @@ The exactly-once final-test ledger is under `reports/MEPI_V1_5_FINAL_TEST_RESULT
 | LSP_raw | 0.0279506859 | 0.0363657696 | 0.9162509237 | 4.7880477905 |
 
 The manuscript evidence aggregation is available in `reports/MEPI_V1_5_MANUSCRIPT_EVIDENCE_SUMMARY.md` and `.json`.
+
+## MEPI v1.5 post-hoc analysis and monitoring prototype
+
+The executed [post-hoc notebook](notebooks/37_mepi_v1_5_posthoc_test_analysis.ipynb)
+recomputes extended metrics, including sample-level Err95 with `epsilon = 1e-12`,
+from the frozen final-test predictions. The resulting
+[metrics](reports/MEPI_V1_5_POSTHOC_TEST_METRICS.md),
+[sample-level predictions](reports/MEPI_V1_5_POSTHOC_TEST_PREDICTIONS.csv), and
+[measured-versus-predicted figure](reports/figures/MEPI_final_test_measured_vs_predicted.png)
+are reporting-only artifacts; no training, model selection, or checkpoint change was
+performed.
+
+The [monitoring prototype](apps/mepi_monitor/) provides replay, offline screening,
+configurable Keysight LAN acquisition, transformer profiles, and a conservative
+domain guard. See the [Raspberry Pi and Keysight guide](docs/MEPI_DEMO_APPLICATION.md),
+[prediction-domain record](reports/MEPI_V1_5_PREDICTION_DOMAIN.json), and
+[final application audit](reports/MEPI_V1_5_DEMO_APPLICATION_AUDIT.md) for setup,
+scientific limitations, and validation status.
 
 ## Frequency-screening scope
 
